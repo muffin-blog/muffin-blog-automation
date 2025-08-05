@@ -1,0 +1,14 @@
+# 認証情報
+canva_working_token.txt
+
+# バックアップフォルダ
+整理前バックアップ/
+
+# システムファイル
+.DS_Store
+__pycache__/
+*.pyc
+
+# 一時ファイル
+*.tmp
+*.log
