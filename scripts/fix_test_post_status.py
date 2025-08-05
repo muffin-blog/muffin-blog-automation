@@ -4,9 +4,9 @@
 
 import sys
 import os
-sys.path.append('/Users/satoumasamitsu/osigoto/ブログ自動化')
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from wordpress_api import WordPressBlogAutomator
+from core.wordpress_api import WordPressBlogAutomator
 import requests
 
 def fix_test_post_status():
