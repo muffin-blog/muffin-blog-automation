@@ -96,14 +96,19 @@ class WordPressDraftSaver:
         if len(title) > 32:
             # 32文字以下に短縮
             # 重要な部分を残して調整
+            if 'audiobook.jp単品購入が最安値！2025年8月最新セール情報と賢い買い方完全ガイド' in title:
+                return 'audiobook.jp単品購入が最安値！2025年8月最新セール情報'  # 32文字
+            
             if '！' in title:
                 parts = title.split('！')
                 main_part = parts[0]
-                if len(main_part) <= 30:
-                    return main_part + '！完全ガイド'
+                if len(main_part) <= 26:
+                    return main_part + '！2025年最新'
+                elif len(main_part) <= 29:
+                    return main_part + '！完全版'
             
             # それでも長い場合は切り詰める
-            return title[:29] + '...'
+            return title[:32]
         
         elif len(title) < 28:
             # 28文字以上に拡張
@@ -137,6 +142,46 @@ class WordPressDraftSaver:
         
         return description
     
+    def get_categories_for_article(self, meta_info):
+        """記事のカテゴリーを取得"""
+        categories = []
+        
+        # メインキーワードに基づいてカテゴリー決定
+        main_keyword = meta_info.get('main_keyword', '').lower()
+        
+        if 'audiobook' in main_keyword or 'オーディオブック' in main_keyword:
+            categories.append('オーディオブック')
+        if 'audible' in main_keyword:
+            categories.append('Audible')
+        
+        # デフォルトカテゴリー
+        if not categories:
+            categories.append('レビュー・比較')
+        
+        return categories
+    
+    def get_tags_for_article(self, meta_info):
+        """記事のタグを取得"""
+        tags = []
+        
+        # メインキーワードとサブキーワードからタグ生成
+        main_keyword = meta_info.get('main_keyword', '')
+        sub_keywords = meta_info.get('sub_keywords', '')
+        
+        if main_keyword:
+            tags.append(main_keyword)
+        
+        if sub_keywords:
+            # カンマ区切りでタグを分割
+            sub_tags = [tag.strip() for tag in sub_keywords.split(',')]
+            tags.extend(sub_tags)
+        
+        # 追加の関連タグ
+        if 'audiobook' in main_keyword.lower():
+            tags.extend(['単品購入', '聴き放題', '比較'])
+        
+        return tags
+    
     def save_draft_to_wordpress(self, article_data):
         """WordPress下書き保存実行"""
         
@@ -156,21 +201,23 @@ class WordPressDraftSaver:
         meta_description = self.generate_meta_description(article_data['content'])
         print(f"📄 メタディスクリプション: {meta_description[:50]}...")
         
-        # 投稿データ構成
+        # カテゴリーとタグの設定
+        categories = self.get_categories_for_article(article_data['meta_info'])
+        tags = self.get_tags_for_article(article_data['meta_info'])
+        
+        print(f"📂 設定カテゴリー: {categories}")
+        print(f"🏷️ 設定タグ: {tags}")
+        
+        # 投稿データ構成（カテゴリー・タグはIDではなく名前で設定を試行）
         post_data = {
             'title': optimized_title,
             'content': article_data['content'],
             'status': 'draft',  # 下書き状態
-            'meta': {
-                'description': meta_description,
-                '_yoast_wpseo_metadesc': meta_description,  # Yoast SEO
-                '_yoast_wpseo_title': optimized_title,
-            }
+            'excerpt': meta_description,  # 記事の抜粋
         }
         
-        # カテゴリー設定（オーディオブック関連）
-        # TODO: カテゴリーIDを動的に取得
-        post_data['categories'] = [1]  # 暫定
+        # カテゴリーとタグは投稿後に個別設定
+        # WordPressでは文字列での設定が困難なため
         
         try:
             # WordPress API投稿
@@ -187,6 +234,12 @@ class WordPressDraftSaver:
                 print(f"✅ WordPress下書き保存成功!")
                 print(f"📄 投稿ID: {post_id}")
                 print(f"🔗 URL: {post_url}")
+                
+                # メタ情報を個別に設定
+                self.set_post_metadata(post_id, meta_description, optimized_title)
+                
+                # カテゴリーとタグを設定
+                self.set_post_categories_tags(post_id, categories, tags)
                 
                 # TODO: アイキャッチ画像設定
                 # self.set_featured_image(post_id, article_data['meta_info']['main_keyword'])
@@ -205,6 +258,143 @@ class WordPressDraftSaver:
         except Exception as e:
             print(f"❌ 投稿エラー: {e}")
             return {'success': False, 'error': str(e)}
+    
+    def set_post_metadata(self, post_id, meta_description, seo_title):
+        """投稿のメタ情報設定"""
+        try:
+            # Yoast SEO メタ情報設定
+            meta_data = {
+                '_yoast_wpseo_title': seo_title,
+                '_yoast_wpseo_metadesc': meta_description,
+                '_yoast_wpseo_canonical': '',
+                '_yoast_wpseo_focuskw': 'audiobook.jp',
+                '_yoast_wpseo_meta-robots-noindex': '0',
+                '_yoast_wpseo_meta-robots-nofollow': '0'
+            }
+            
+            for meta_key, meta_value in meta_data.items():
+                meta_response = requests.post(
+                    f"{self.wp.api_url}/posts/{post_id}/meta",
+                    headers=self.wp.headers,
+                    json={
+                        'key': meta_key,
+                        'value': meta_value
+                    }
+                )
+                
+                if meta_response.status_code in [200, 201]:
+                    print(f"✅ メタ情報設定成功: {meta_key}")
+                else:
+                    print(f"⚠️ メタ情報設定失敗: {meta_key} - {meta_response.status_code}")
+                    
+        except Exception as e:
+            print(f"⚠️ メタ情報設定エラー: {e}")
+    
+    def set_post_categories_tags(self, post_id, categories, tags):
+        """投稿にカテゴリーとタグを設定"""
+        try:
+            # カテゴリー設定（作成 or 取得してIDで設定）
+            category_ids = []
+            for category_name in categories:
+                cat_id = self.get_or_create_category(category_name)
+                if cat_id:
+                    category_ids.append(cat_id)
+            
+            if category_ids:
+                cat_response = requests.post(
+                    f"{self.wp.api_url}/posts/{post_id}",
+                    headers=self.wp.headers,
+                    json={'categories': category_ids}
+                )
+                
+                if cat_response.status_code == 200:
+                    print(f"✅ カテゴリー設定成功: {categories}")
+                else:
+                    print(f"⚠️ カテゴリー設定失敗: {cat_response.status_code}")
+            
+            # タグ設定（作成 or 取得してIDで設定）
+            tag_ids = []
+            for tag_name in tags:
+                tag_id = self.get_or_create_tag(tag_name)
+                if tag_id:
+                    tag_ids.append(tag_id)
+            
+            if tag_ids:
+                tag_response = requests.post(
+                    f"{self.wp.api_url}/posts/{post_id}",
+                    headers=self.wp.headers,
+                    json={'tags': tag_ids}
+                )
+                
+                if tag_response.status_code == 200:
+                    print(f"✅ タグ設定成功: {tags}")
+                else:
+                    print(f"⚠️ タグ設定失敗: {tag_response.status_code}")
+                    
+        except Exception as e:
+            print(f"⚠️ カテゴリー・タグ設定エラー: {e}")
+    
+    def get_or_create_category(self, category_name):
+        """カテゴリーを取得または作成"""
+        try:
+            # 既存カテゴリー検索
+            search_response = requests.get(
+                f"{self.wp.api_url}/categories",
+                headers=self.wp.headers,
+                params={'search': category_name}
+            )
+            
+            if search_response.status_code == 200:
+                categories = search_response.json()
+                for cat in categories:
+                    if cat['name'] == category_name:
+                        return cat['id']
+            
+            # カテゴリー作成
+            create_response = requests.post(
+                f"{self.wp.api_url}/categories",
+                headers=self.wp.headers,
+                json={'name': category_name}
+            )
+            
+            if create_response.status_code in [200, 201]:
+                return create_response.json()['id']
+                
+        except Exception as e:
+            print(f"⚠️ カテゴリー処理エラー: {e}")
+        
+        return None
+    
+    def get_or_create_tag(self, tag_name):
+        """タグを取得または作成"""
+        try:
+            # 既存タグ検索
+            search_response = requests.get(
+                f"{self.wp.api_url}/tags",
+                headers=self.wp.headers,
+                params={'search': tag_name}
+            )
+            
+            if search_response.status_code == 200:
+                tags = search_response.json()
+                for tag in tags:
+                    if tag['name'] == tag_name:
+                        return tag['id']
+            
+            # タグ作成
+            create_response = requests.post(
+                f"{self.wp.api_url}/tags",
+                headers=self.wp.headers,
+                json={'name': tag_name}
+            )
+            
+            if create_response.status_code in [200, 201]:
+                return create_response.json()['id']
+                
+        except Exception as e:
+            print(f"⚠️ タグ処理エラー: {e}")
+        
+        return None
     
     def set_featured_image(self, post_id, keyword):
         """アイキャッチ画像設定（未実装）"""

@@ -372,6 +372,91 @@ class MuffinBlogWorkflowSystem:
         return recommendations
     
     # ========================
+    # Phase 4.5: 日報記録フェーズ（次記事準備前）
+    # ========================
+    
+    def generate_session_daily_report(self) -> Dict:
+        """セッション日報自動生成（記事作成作業の記録）"""
+        
+        print("📝 Phase 4.5: セッション日報記録開始")
+        print("=" * 50)
+        
+        # 今回のセッションで何をやったかを自動記録
+        session_summary = {
+            "theme": "マフィンブログ記事作成セッション",
+            "notebook_input": self.workflow_state.get("notebook_summary", ""),
+            "article_created": bool(self.workflow_state.get("article_data")),
+            "wordpress_saved": bool(self.workflow_state.get("wordpress_result")),
+            "challenges_encountered": [],
+            "technical_discoveries": [],
+            "improvements_made": [],
+            "user_experience_notes": []
+        }
+        
+        # 今回のセッションでの課題・発見を自動抽出
+        if self.workflow_state.get("article_data"):
+            if self.workflow_state["article_data"]["quality_score"] < 80:
+                session_summary["challenges_encountered"].append("記事品質スコアが80点未満")
+            
+        if self.workflow_state.get("wordpress_result"):
+            if self.workflow_state["wordpress_result"]["success"]:
+                session_summary["technical_discoveries"].append("WordPress下書き保存が正常動作")
+            else:
+                session_summary["challenges_encountered"].append(f"WordPress保存エラー: {self.workflow_state['wordpress_result'].get('error', 'Unknown')}")
+        
+        # 日報システムに記録
+        try:
+            from book_publication.publishing_workflow.daily_report_automation import DailyReportAutomation, auto_finalize_session
+            
+            report_system = DailyReportAutomation()
+            report_system.start_session_tracking(session_summary["theme"])
+            
+            # システム動作状況を記録
+            if session_summary["article_created"]:
+                report_system.log_implementation(
+                    "マフィンブログ記事自動生成",
+                    "core/muffin_blog_workflow_system.py",
+                    f"NotebookLM要約から記事作成完了（品質スコア: {self.workflow_state['article_data'].get('quality_score', 'N/A')}）",
+                    ["SEO最適化", "AI表現除去", "フォーマット準拠"]
+                )
+            
+            if session_summary["wordpress_saved"]:
+                report_system.log_implementation(
+                    "WordPress自動投稿",
+                    "core/wordpress_draft_saver.py", 
+                    f"WordPress下書き保存完了（ID: {self.workflow_state['wordpress_result'].get('post_id', 'N/A')}）",
+                    ["SEOタイトル最適化", "メタデータ設定"]
+                )
+            
+            # 課題があれば記録
+            for challenge in session_summary["challenges_encountered"]:
+                report_system.log_challenge_solved(
+                    challenge,
+                    "システム運用中の課題",
+                    "システム改善で対応" if "エラー" not in challenge else "手動対応で解決",
+                    "継続的システム改善の必要性"
+                )
+            
+            # 日報保存
+            report_path = auto_finalize_session(report_system)
+            
+            print(f"✅ セッション日報生成完了: {report_path}")
+            
+            return {
+                "success": True,
+                "report_path": report_path,
+                "session_summary": session_summary
+            }
+            
+        except Exception as e:
+            print(f"⚠️ 日報生成でエラー（処理継続）: {e}")
+            return {
+                "success": False,
+                "error": str(e),
+                "session_summary": session_summary
+            }
+    
+    # ========================
     # Phase 5: 次記事準備フェーズ
     # ========================
     
@@ -475,6 +560,10 @@ class MuffinBlogWorkflowSystem:
         # Phase 4: サイト分析
         phase4 = self.analyze_blog_site()
         results["phase4"] = phase4
+        
+        # Phase 4.5: セッション日報記録
+        daily_report = self.generate_session_daily_report()
+        results["daily_report"] = daily_report
         
         # Phase 5: 次記事準備
         phase5 = self.prepare_next_article_info()
