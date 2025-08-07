@@ -1,0 +1,142 @@
+{
+  "記事ID": 2791,
+  "削除日時": "2025-08-06T13:06:29.275362",
+  "記事データ": {
+    "id": 2791,
+    "date": "2025-08-03T12:20:08",
+    "date_gmt": "2025-08-03T03:20:08",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?p=2791"
+    },
+    "modified": "2025-08-03T12:20:08",
+    "modified_gmt": "2025-08-03T03:20:08",
+    "slug": "",
+    "status": "draft",
+    "type": "post",
+    "link": "https://muffin-blog.com/?p=2791",
+    "title": {
+      "rendered": "【テスト】Claude自動化システム動作確認"
+    },
+    "content": {
+      "rendered": "<h2>Claude自動化システムのテスト記事</h2>\n<p>この記事はClaude主導のブログ自動化システムによって自動生成・投稿されました。</p>\n<p>システムが正常に動作していることを確認するためのテスト投稿です。</p>\n<h3>自動化機能</h3>\n<ul>\n<li>記事の自動作成</li>\n<li>WordPress REST APIでの投稿</li>\n<li>カテゴリ・タグの自動設定</li>\n<li>SEO最適化</li>\n</ul>\n<p>このテストが成功すれば、本格的なブログ自動化が開始できます！</p>\n\n\n\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Claude自動化システムのテスト記事 この記事はClaude主導のブログ自動化システムによって自動生成・投稿されました。 システムが正常に動作していることを確認するためのテスト投稿です。 自動化機能 記事の自動作成 W [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "categories": [
+      88
+    ],
+    "tags": [
+      89,
+      91,
+      90
+    ],
+    "class_list": [
+      "post-2791",
+      "post",
+      "type-post",
+      "status-draft",
+      "format-standard",
+      "hentry",
+      "category-88",
+      "tag-claude",
+      "tag-91",
+      "tag-90"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts/2791",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=2791"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts/2791/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=2791"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories?post=2791"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/tags?post=2791"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  "復元用データ": {
+    "title": "【テスト】Claude自動化システム動作確認",
+    "content": "<h2>Claude自動化システムのテスト記事</h2>\n<p>この記事はClaude主導のブログ自動化システムによって自動生成・投稿されました。</p>\n<p>システムが正常に動作していることを確認するためのテスト投稿です。</p>\n<h3>自動化機能</h3>\n<ul>\n<li>記事の自動作成</li>\n<li>WordPress REST APIでの投稿</li>\n<li>カテゴリ・タグの自動設定</li>\n<li>SEO最適化</li>\n</ul>\n<p>このテストが成功すれば、本格的なブログ自動化が開始できます！</p>\n\n\n\n",
+    "excerpt": "<p>Claude自動化システムのテスト記事 この記事はClaude主導のブログ自動化システムによって自動生成・投稿されました。 システムが正常に動作していることを確認するためのテスト投稿です。 自動化機能 記事の自動作成 W [&hellip;]</p>\n",
+    "status": "draft",
+    "categories": [
+      88
+    ],
+    "tags": [
+      89,
+      91,
+      90
+    ]
+  }
+}
