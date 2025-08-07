@@ -1,0 +1,509 @@
+[
+  {
+    "id": 2836,
+    "date": "2025-08-04T21:23:28",
+    "date_gmt": "2025-08-04T12:23:28",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?page_id=2836"
+    },
+    "modified": "2025-08-04T21:23:28",
+    "modified_gmt": "2025-08-04T12:23:28",
+    "slug": "unlimi-home",
+    "status": "draft",
+    "type": "page",
+    "link": "https://muffin-blog.com/?page_id=2836",
+    "title": {
+      "rendered": "マフィンブログ &#8211; Unlimi Channel風ホーム"
+    },
+    "content": {
+      "rendered": "\n<!-- カスタムCSS -->\n\n<style>\n/* Unlimi Channel風デザイン設定 */\n:root {\n    --color-main: #FF6B35;\n    --color-accent: #F7931E;\n    --color-text: #333333;\n    --color-text-light: #666666;\n    --color-bg: #FFFFFF;\n    --color-bg-light: #F8F9FA;\n    --color-border: #E5E5E5;\n    --font-main: 'Noto Sans JP', '游ゴシック', sans-serif;\n}\n\n/* 全体のベーススタイル */\n.unlimi-homepage {\n    font-family: var(--font-main);\n    line-height: 1.7;\n    color: var(--color-text);\n}\n\n/* ファーストビューセクション */\n.hero-section {\n    background: linear-gradient(135deg, #FFF8F3 0%, #FFFFFF 100%);\n    padding: 80px 0;\n    text-align: center;\n}\n\n.hero-title {\n    font-size: clamp(2.5rem, 5vw, 4rem);\n    font-weight: 700;\n    color: var(--color-main);\n    margin-bottom: 20px;\n    line-height: 1.2;\n}\n\n.hero-subtitle {\n    font-size: clamp(1.1rem, 2.5vw, 1.4rem);\n    color: var(--color-text-light);\n    margin-bottom: 40px;\n    font-weight: 400;\n}\n\n.hero-cta {\n    display: inline-block;\n    background: var(--color-main);\n    color: white;\n    padding: 18px 40px;\n    border-radius: 50px;\n    text-decoration: none;\n    font-weight: 600;\n    font-size: 1.1rem;\n    transition: all 0.3s ease;\n    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);\n}\n\n.hero-cta:hover {\n    background: var(--color-accent);\n    transform: translateY(-2px);\n    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);\n    color: white;\n    text-decoration: none;\n}\n\n/* カテゴリバナーセクション */\n.category-banners {\n    padding: 60px 0;\n    background: var(--color-bg);\n}\n\n.category-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n    gap: 30px;\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 0 20px;\n}\n\n.category-card {\n    background: white;\n    border-radius: 15px;\n    padding: 40px 20px;\n    text-align: center;\n    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);\n    transition: all 0.3s ease;\n    text-decoration: none;\n    color: var(--color-text);\n}\n\n.category-card:hover {\n    transform: translateY(-5px);\n    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);\n    text-decoration: none;\n    color: var(--color-text);\n}\n\n.category-icon {\n    font-size: 3rem;\n    margin-bottom: 20px;\n    display: block;\n}\n\n.category-title {\n    font-size: 1.3rem;\n    font-weight: 600;\n    margin-bottom: 10px;\n    color: var(--color-main);\n}\n\n.category-desc {\n    font-size: 0.95rem;\n    color: var(--color-text-light);\n    line-height: 1.6;\n}\n\n/* 新着記事セクション */\n.latest-posts {\n    padding: 80px 0;\n    background: var(--color-bg-light);\n}\n\n.section-title {\n    text-align: center;\n    font-size: clamp(2rem, 4vw, 2.5rem);\n    font-weight: 700;\n    color: var(--color-text);\n    margin-bottom: 50px;\n}\n\n.posts-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));\n    gap: 30px;\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 0 20px;\n}\n\n.post-card {\n    background: white;\n    border-radius: 15px;\n    overflow: hidden;\n    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);\n    transition: all 0.3s ease;\n    text-decoration: none;\n    color: var(--color-text);\n}\n\n.post-card:hover {\n    transform: translateY(-5px);\n    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);\n    text-decoration: none;\n    color: var(--color-text);\n}\n\n.post-image {\n    width: 100%;\n    height: 200px;\n    object-fit: cover;\n}\n\n.post-content {\n    padding: 25px;\n}\n\n.post-category {\n    display: inline-block;\n    background: var(--color-main);\n    color: white;\n    padding: 4px 12px;\n    border-radius: 20px;\n    font-size: 0.8rem;\n    font-weight: 500;\n    margin-bottom: 15px;\n}\n\n.post-title {\n    font-size: 1.2rem;\n    font-weight: 600;\n    line-height: 1.4;\n    margin-bottom: 10px;\n    color: var(--color-text);\n}\n\n.post-date {\n    font-size: 0.9rem;\n    color: var(--color-text-light);\n}\n\n/* プロフィールセクション */\n.profile-section {\n    padding: 80px 0;\n    background: white;\n}\n\n.profile-container {\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 0 20px;\n    text-align: center;\n}\n\n.profile-image {\n    width: 150px;\n    height: 150px;\n    border-radius: 50%;\n    margin: 0 auto 30px;\n    border: 4px solid var(--color-main);\n    object-fit: cover;\n}\n\n.profile-name {\n    font-size: 1.8rem;\n    font-weight: 700;\n    color: var(--color-text);\n    margin-bottom: 20px;\n}\n\n.profile-bio {\n    font-size: 1.1rem;\n    line-height: 1.8;\n    color: var(--color-text-light);\n    margin-bottom: 30px;\n}\n\n/* レスポンシブ対応 */\n@media (max-width: 768px) {\n    .hero-section {\n        padding: 60px 0;\n    }\n    \n    .category-grid {\n        grid-template-columns: 1fr;\n        gap: 20px;\n        padding: 0 15px;\n    }\n    \n    .posts-grid {\n        grid-template-columns: 1fr;\n        gap: 20px;\n        padding: 0 15px;\n    }\n    \n    .category-banners,\n    .latest-posts,\n    .profile-section {\n        padding: 50px 0;\n    }\n}\n</style>\n\n\n<!-- ★ ファーストビューセクション -->\n\n<div class=\"wp-block-group alignfull hero-section unlimi-homepage\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h1 class=\"wp-block-heading has-text-align-center hero-title\">READ LEARN SUCCEED</h1>\n        \n        \n        \n        <p class=\"has-text-align-center hero-subtitle\">読書をもっと身近に。1年後の自分を楽にするブログ</p>\n        \n        \n        \n        <p class=\"has-text-align-center\"><a href=\"#recommend\" class=\"hero-cta\">📚 おすすめ本を見る</a></p>\n        \n    </div>\n    \n</div></div>\n\n\n<!-- ★ カテゴリバナーセクション -->\n\n<div class=\"wp-block-group alignfull category-banners\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center section-title\">カテゴリから探す</h2>\n        \n        \n        \n        <div class=\"category-grid\">\n            <a href=\"/category/audible/\" class=\"category-card\">\n                <span class=\"category-icon\">🎧</span>\n                <h3 class=\"category-title\">Audible活用術</h3>\n                <p class=\"category-desc\">耳で聴く読書で、通勤時間を学習時間に変える方法</p>\n            </a>\n            \n            <a href=\"/category/学習・自己啓発/\" class=\"category-card\">\n                <span class=\"category-icon\">📈</span>\n                <h3 class=\"category-title\">学習・自己啓発</h3>\n                <p class=\"category-desc\">効率的な学習方法と継続的な成長のテクニック</p>\n            </a>\n            \n            <a href=\"/category/reading/\" class=\"category-card\">\n                <span class=\"category-icon\">📖</span>\n                <h3 class=\"category-title\">読書術</h3>\n                <p class=\"category-desc\">限られた時間で最大の学習効果を得る読書方法</p>\n            </a>\n            \n            <a href=\"/category/time-management/\" class=\"category-card\">\n                <span class=\"category-icon\">⏰</span>\n                <h3 class=\"category-title\">時間管理術</h3>\n                <p class=\"category-desc\">忙しい日常でも学習時間を確保する秘訣</p>\n            </a>\n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n<!-- ★ 新着記事セクション -->\n\n<div class=\"wp-block-group alignfull latest-posts\" id=\"recommend\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center section-title\">新着記事</h2>\n        \n        \n        \n        <div class=\"wp-block-query is-layout-flow wp-block-query-is-layout-flow\">\n            <ul class=\"columns-3 wp-block-post-template is-layout-grid wp-container-core-post-template-is-layout-2fc57c17 wp-block-post-template-is-layout-grid\"><li class=\"wp-block-post post-2535 post type-post status-publish format-standard has-post-thumbnail hentry category-audible\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"563\" src=\"https://muffin-blog.com/wp-content/uploads/2024/04/3.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"Audibleの始め方\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/04/3.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/04/3-300x169.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/04/3-768x432.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/audible/\" rel=\"tag\">Audible</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/start-guide-for-audible/\" target=\"_self\" >世界一分かりやすいAudible（オーディブル）の始め方！アプリの使い方を完全ガイド</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-05-05T14:42:53+09:00\">2024年5月5日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li><li class=\"wp-block-post post-2210 post type-post status-publish format-standard has-post-thumbnail hentry category-audible\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"563\" src=\"https://muffin-blog.com/wp-content/uploads/2024/04/2.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"耳活で人生は変わる\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/04/2.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/04/2-300x169.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/04/2-768x432.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/audible/\" rel=\"tag\">Audible</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/ears-activity/\" target=\"_self\" >「耳活で人生は変わる！」1年後の自分が楽になるたった一つの習慣</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-04-13T17:11:05+09:00\">2024年4月13日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li><li class=\"wp-block-post post-2732 post type-post status-publish format-standard has-post-thumbnail hentry category-audible\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"567\" src=\"https://muffin-blog.com/wp-content/uploads/2024/06/見出しを追加-6.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"貯蓄、節約、投資が学べる書籍6選\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/06/見出しを追加-6.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/06/見出しを追加-6-300x170.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/06/見出しを追加-6-768x435.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/audible/\" rel=\"tag\">Audible</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/audible-money-study/\" target=\"_self\" >Audibleでお金の勉強！これから貯金・節約・投資を学びたい人におすすめの書籍6選</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-06-30T15:46:18+09:00\">2024年6月30日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li><li class=\"wp-block-post post-2677 post type-post status-publish format-standard has-post-thumbnail hentry category-audible\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"563\" src=\"https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-3.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"休会制度アイキャッチ\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-3.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-3-300x169.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-3-768x432.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/audible/\" rel=\"tag\">Audible</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/audible-recess/\" target=\"_self\" >Audibleの休会制度を完全ガイド！メリットや注意点、退会との違いを丁寧に解説</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-05-19T15:33:16+09:00\">2024年5月19日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li><li class=\"wp-block-post post-2625 post type-post status-publish format-standard has-post-thumbnail hentry category-audible\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"563\" src=\"https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-2.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"退会・解約方法を徹底解説\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-2.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-2-300x169.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/05/見出しを追加-2-768x432.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/audible/\" rel=\"tag\">Audible</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/audible-cancel/\" target=\"_self\" >安心してAudibleを始めるために事前にチェック！退会・解約方法を徹底解説</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-05-05T14:48:39+09:00\">2024年5月5日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li><li class=\"wp-block-post post-649 post type-post status-publish format-standard has-post-thumbnail hentry category-85\">\n                \n                <div class=\"wp-block-group post-card\"><div class=\"wp-block-group__inner-container\">\n                    <figure class=\"post-image wp-block-post-featured-image\"><img decoding=\"async\" width=\"1000\" height=\"563\" src=\"https://muffin-blog.com/wp-content/uploads/2024/04/1-1.jpg\" class=\"attachment-post-thumbnail size-post-thumbnail wp-post-image\" alt=\"コミット車検は本当にお得なの？\" style=\"object-fit:cover;\" srcset=\"https://muffin-blog.com/wp-content/uploads/2024/04/1-1.jpg 1000w, https://muffin-blog.com/wp-content/uploads/2024/04/1-1-300x169.jpg 300w, https://muffin-blog.com/wp-content/uploads/2024/04/1-1-768x432.jpg 768w\" sizes=\"(max-width: 1000px) 100vw, 1000px\" /></figure>\n                    \n                    \n                    <div class=\"wp-block-group post-content\"><div class=\"wp-block-group__inner-container\">\n                        <div class=\"taxonomy-category post-category wp-block-post-terms\"><a href=\"https://muffin-blog.com/category/%e3%81%9d%e3%81%ae%e4%bb%96/\" rel=\"tag\">その他</a></div>\n                        \n                        <h3 class=\"post-title wp-block-post-title\"><a href=\"https://muffin-blog.com/commit/\" target=\"_self\" >コスモ石油のコミっと車検は本当にお得なの？【実際に利用してみた感想と注意点】</a></h3>\n                        \n                        <div class=\"post-date wp-block-post-date\"><time datetime=\"2024-04-12T15:01:40+09:00\">2024年4月12日</time></div>\n                    </div></div>\n                    \n                </div></div>\n                \n            </li></ul>\n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n<!-- ★ プロフィールセクション -->\n\n<div class=\"wp-block-group alignfull profile-section\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center section-title\">プロフィール</h2>\n        \n        \n        \n        <div class=\"profile-container\">\n            <img decoding=\"async\" src=\"https://muffin-blog.com/wp-content/uploads/2024/04/1.jpg\" alt=\"マフィン\" class=\"profile-image\">\n            <h3 class=\"profile-name\">マフィン</h3>\n            <div class=\"profile-bio\">\n                <p><strong>愛知県出身・43歳</strong></p>\n                <p>本業は工作機械の営業、副業でブログ運営とWEBライターをしています。</p>\n                <p>FP2級技能検定に合格し、副業月収10万円を達成。</p>\n                <p>読書と学習で人生を豊かにする方法を研究・実践し、このブログで情報発信しています。</p>\n                <p>縁側で日向ぼっこしながら、オーディオブックを聞くのが最近の贅沢です。</p>\n            </div>\n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n<!-- ★ 人気記事ランキングセクション -->\n\n<div class=\"wp-block-group alignfull popular-posts has-background\" style=\"background-color:#f8f9fa\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <div style=\"height:80px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <h2 class=\"wp-block-heading has-text-align-center section-title\">人気記事ランキング</h2>\n        \n        \n        \n        <div class=\"posts-grid\">\n            <a href=\"/audible-money-study/\" class=\"post-card\">\n                <img decoding=\"async\" src=\"https://muffin-blog.com/wp-content/uploads/2025/08/final_template_1754290306.png\" alt=\"Audible Money Study\" class=\"post-image\">\n                <div class=\"post-content\">\n                    <span class=\"post-category\">Audible</span>\n                    <h3 class=\"post-title\">💰 Audible Money Study &#8211; お金の勉強におすすめの作品</h3>\n                    <p class=\"post-date\">2025年1月15日</p>\n                </div>\n            </a>\n            \n            <a href=\"/audible-recess/\" class=\"post-card\">\n                <img decoding=\"async\" src=\"https://muffin-blog.com/wp-content/uploads/2025/08/final_template_1754290306.png\" alt=\"Audible Recess\" class=\"post-image\">\n                <div class=\"post-content\">\n                    <span class=\"post-category\">Audible</span>\n                    <h3 class=\"post-title\">⏸️ Audible Recess &#8211; 一時停止機能の活用術</h3>\n                    <p class=\"post-date\">2025年1月10日</p>\n                </div>\n            </a>\n            \n            <a href=\"/reading-method/\" class=\"post-card\">\n                <img decoding=\"async\" src=\"https://muffin-blog.com/wp-content/uploads/2025/08/final_template_1754290306.png\" alt=\"効率的読書術\" class=\"post-image\">\n                <div class=\"post-content\">\n                    <span class=\"post-category\">読書術</span>\n                    <h3 class=\"post-title\">📖 効率的読書術 &#8211; 短時間で理解を深める方法</h3>\n                    <p class=\"post-date\">2025年1月8日</p>\n                </div>\n            </a>\n        </div>\n        \n        \n        <div style=\"height:80px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n    </div>\n    \n</div>\n\n\n<!-- ★ フッターCTA -->\n\n<div class=\"wp-block-group alignfull footer-cta has-background\" style=\"background-color:#FF6B35\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <div style=\"height:60px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <h2 class=\"wp-block-heading has-text-align-center has-text-color\" style=\"color:#ffffff;font-size:2rem;font-weight:700\">今すぐ始めませんか？</h2>\n        \n        \n        \n        <p class=\"has-text-align-center has-text-color\" style=\"color:rgba(255,255,255,0.9);font-size:1.2rem\">1年後、成長した自分に出会うために</p>\n        \n        \n        \n        <p class=\"has-text-align-center\"><a href=\"https://www.audible.co.jp/\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;background:white;color:#FF6B35;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1.1rem;margin-top:20px;\">🎧 Audible 無料体験を始める</a></p>\n        \n        \n        \n        <div style=\"height:60px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n    </div>\n    \n</div></div></div>\n\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-2836",
+      "page",
+      "type-page",
+      "status-draft",
+      "hentry"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2836",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=2836"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2836/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=2836"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2821,
+    "date": "2025-08-04T16:27:56",
+    "date_gmt": "2025-08-04T07:27:56",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?page_id=2821"
+    },
+    "modified": "2025-08-04T16:27:56",
+    "modified_gmt": "2025-08-04T07:27:56",
+    "slug": "home",
+    "status": "draft",
+    "type": "page",
+    "link": "https://muffin-blog.com/?page_id=2821",
+    "title": {
+      "rendered": "マフィンブログ &#8211; ホーム"
+    },
+    "content": {
+      "rendered": "\n\n<div class=\"wp-block-group alignfull hero-section has-white-background-color has-background\" style=\"padding-top:60px;padding-bottom:60px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <div class=\"wp-block-columns alignwide\">\n            \n            <div class=\"wp-block-column\" style=\"flex-basis:60%\">\n                \n                <h1 class=\"wp-block-heading\" style=\"color:#2c3e50;font-size:3.5rem;line-height:1.2\">READ<br>LEARN<br><span style=\"color:#e74c3c\">GROW</span></h1>\n                \n                \n                \n                <p style=\"color:#34495e;font-size:1.2rem\">1年後の自分を楽にするブログ</p>\n                \n                \n                \n                <p style=\"color:#7f8c8d\">Audible・読書・学習で、あなたの成長をサポートします。</p>\n                \n            </div>\n            \n            \n            \n            <div class=\"wp-block-column\" style=\"flex-basis:40%\">\n                \n                <figure class=\"wp-block-image aligncenter\" style=\"border-radius:20px\">\n                    <img decoding=\"async\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjBmOGZmIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiMzNDk4ZGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfp6E8L3RleHQ+Cjx0ZXh0IHg9IjE1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM0MjczNWUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1hZmZpbjwvdGV4dD4KPHRleHQgeD0iMTUwIiB5PSIyMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzQyNzM1ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmxvZzwvdGV4dD4KPC9zdmc+\" alt=\"マフィンブログ\"/>\n                </figure>\n                \n            </div>\n            \n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull intro-section has-light-gray-background-color has-background\" style=\"padding-top:60px;padding-bottom:60px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <p class=\"has-text-align-center\" style=\"font-size:1.1rem\">忙しい毎日の中でも、効率的に<strong>学習・読書・成長</strong>できる方法をお伝えします。<br>Audibleを活用した「ながら学習」で、1年後の自分を楽にしませんか？</p>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull audible-section\" style=\"padding-top:80px;padding-bottom:80px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center\" style=\"color:#2c3e50;font-size:2.5rem\">🎧 Audible活用術</h2>\n        \n        \n        \n        <p class=\"has-text-align-center\" style=\"color:#7f8c8d;font-size:1.1rem\">耳で聴く読書で、通勤時間や家事の時間を学習時間に変える</p>\n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex\">\n            \n            <div class=\"wp-block-button cta-button\">\n                <a class=\"wp-block-button__link has-white-color has-orange-background-color has-text-color has-background wp-element-button\" style=\"border-radius:50px;font-size:1.1rem;padding-top:15px;padding-right:40px;padding-bottom:15px;padding-left:40px\" href=\"https://www.audible.co.jp/\" target=\"_blank\" rel=\"noopener\">🎧 Audible 30日間無料体験</a>\n            </div>\n            \n        </div>\n        \n        \n        \n        <p class=\"has-text-align-center\" style=\"color:#95a5a6;font-size:0.9rem\">※ 無料期間中の解約で料金は発生しません</p>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull learning-section has-light-gray-background-color has-background\" style=\"padding-top:80px;padding-bottom:80px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center\" style=\"color:#2c3e50;font-size:2.5rem\">📚 学習・自己啓発</h2>\n        \n        \n        \n        <p class=\"has-text-align-center\" style=\"color:#7f8c8d;font-size:1.1rem\">効率的な学習方法で、継続的な成長を実現する</p>\n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex\">\n            \n            <div class=\"wp-block-button\">\n                <a class=\"wp-block-button__link has-white-color has-blue-background-color has-text-color has-background wp-element-button\" style=\"border-radius:50px;font-size:1.1rem;padding-top:15px;padding-right:40px;padding-bottom:15px;padding-left:40px\" href=\"/category/学習・自己啓発/\">📖 学習記事をもっと見る</a>\n            </div>\n            \n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull latest-posts-section\" style=\"padding-top:80px;padding-bottom:80px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center\" style=\"color:#2c3e50;font-size:2.5rem\">🕒 最新記事</h2>\n        \n        \n        \n        <p class=\"has-text-align-center\" style=\"color:#7f8c8d;font-size:1.1rem\">最新の学習・読書に関する情報をお届け</p>\n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex\">\n            \n            <div class=\"wp-block-button\">\n                <a class=\"wp-block-button__link has-white-color has-dark-gray-background-color has-text-color has-background wp-element-button\" style=\"border-radius:50px;font-size:1.1rem;padding-top:15px;padding-right:40px;padding-bottom:15px;padding-left:40px\" href=\"/archives/\">📝 全記事一覧を見る</a>\n            </div>\n            \n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull profile-section has-light-blue-background-color has-background\" style=\"padding-top:80px;padding-bottom:80px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <h2 class=\"wp-block-heading has-text-align-center\" style=\"color:#2c3e50;font-size:2.5rem\">✏️ プロフィール</h2>\n        \n        \n        \n        <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n        \n        \n        \n        <div class=\"wp-block-columns alignwide\">\n            \n            <div class=\"wp-block-column\" style=\"flex-basis:30%\">\n                \n                <figure class=\"wp-block-image aligncenter\" style=\"border-radius:50%\">\n                    <img decoding=\"async\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTAwIiBmaWxsPSIjZjlmOWY5Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzM0OThkYiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+nqTwvdGV4dD4KPHRleHQgeD0iMTAwIiB5PSIxMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzQyNzM1ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44Oe44OV44Kj44OzPC90ZXh0Pgo8L3N2Zz4=\" alt=\"マフィンのプロフィール画像\"/>\n                </figure>\n                \n                \n                \n                <p class=\"has-text-align-center\" style=\"color:#2c3e50;font-size:1.3rem;font-weight:bold\">マフィン</p>\n                \n            </div>\n            \n            \n            \n            <div class=\"wp-block-column\" style=\"flex-basis:70%\">\n                \n                <p style=\"font-size:1.1rem;line-height:1.8\">効率的な学習と読書で人生を豊かにする方法を研究・実践しています。</p>\n                \n                \n                \n                <p style=\"font-size:1.1rem;line-height:1.8\">特にAudibleを活用した「ながら学習」で、忙しい日常の中でも継続的な成長を実現。</p>\n                \n                \n                \n                <p style=\"font-size:1.1rem;line-height:1.8\">このブログでは、1年後の自分を楽にするための学習ノウハウをお伝えしています。</p>\n                \n                \n                \n                <div class=\"wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex\">\n                    \n                    <div class=\"wp-block-button\">\n                        <a class=\"wp-block-button__link has-white-color has-green-background-color has-text-color has-background wp-element-button\" style=\"border-radius:25px\" href=\"/contact/\">💌 お問い合わせ</a>\n                    </div>\n                    \n                </div>\n                \n            </div>\n            \n        </div>\n        \n    </div>\n    \n</div></div>\n\n\n\n<div class=\"wp-block-group alignfull footer-cta has-white-background-color has-background\" style=\"padding-top:40px;padding-bottom:40px\"><div class=\"wp-block-group__inner-container\">\n    \n    <div class=\"wp-block-container\">\n        \n        <p class=\"has-text-align-center\" style=\"color:#7f8c8d;font-size:0.9rem\">最終更新: 2025年08月04日 | マフィンブログ &#8211; 1年後の自分を楽にするブログ</p>\n        \n    </div>\n    \n</div></div>\n\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-2821",
+      "page",
+      "type-page",
+      "status-draft",
+      "hentry"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2821",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=2821"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2821/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=2821"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "date": "2022-11-16T12:29:10",
+    "date_gmt": "2022-11-16T03:29:10",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?page_id=29"
+    },
+    "modified": "2022-11-16T12:29:10",
+    "modified_gmt": "2022-11-16T03:29:10",
+    "slug": "contact",
+    "status": "publish",
+    "type": "page",
+    "link": "https://muffin-blog.com/contact/",
+    "title": {
+      "rendered": "お問い合わせ"
+    },
+    "content": {
+      "rendered": "\n<div class=\"wpcf7 no-js\" id=\"wpcf7-f31-o1\" lang=\"ja\" dir=\"ltr\" data-wpcf7-id=\"31\">\n<div class=\"screen-reader-response\"><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p> <ul></ul></div>\n<form action=\"/wp-json/wp/v2/pages?per_page=100&#038;status=publish%2Cdraft%2Cprivate#wpcf7-f31-o1\" method=\"post\" class=\"wpcf7-form init\" aria-label=\"コンタクトフォーム\" novalidate=\"novalidate\" data-status=\"init\">\n<fieldset class=\"hidden-fields-container\"><input type=\"hidden\" name=\"_wpcf7\" value=\"31\" /><input type=\"hidden\" name=\"_wpcf7_version\" value=\"6.1.1\" /><input type=\"hidden\" name=\"_wpcf7_locale\" value=\"ja\" /><input type=\"hidden\" name=\"_wpcf7_unit_tag\" value=\"wpcf7-f31-o1\" /><input type=\"hidden\" name=\"_wpcf7_container_post\" value=\"0\" /><input type=\"hidden\" name=\"_wpcf7_posted_data_hash\" value=\"\" />\n</fieldset>\n<p><label> 氏名<br />\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-name\"><input size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-text wpcf7-validates-as-required\" aria-required=\"true\" aria-invalid=\"false\" value=\"\" type=\"text\" name=\"your-name\" /></span> </label>\n</p>\n<p><label> メールアドレス<br />\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-email\"><input size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email\" aria-required=\"true\" aria-invalid=\"false\" value=\"\" type=\"email\" name=\"your-email\" /></span> </label>\n</p>\n<p><label> メッセージ本文 (任意)<br />\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-message\"><textarea cols=\"40\" rows=\"10\" maxlength=\"2000\" class=\"wpcf7-form-control wpcf7-textarea\" aria-invalid=\"false\" name=\"your-message\"></textarea></span> </label>\n</p>\n<p><input class=\"wpcf7-form-control wpcf7-submit has-spinner\" type=\"submit\" value=\"送信\" />\n</p><div class=\"wpcf7-response-output\" aria-hidden=\"true\"></div>\n</form>\n</div>\n\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-29",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/29",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=29"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/29/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 34,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/29/revisions/34"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=29"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "date": "2022-11-16T12:28:29",
+    "date_gmt": "2022-11-16T03:28:29",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?page_id=3"
+    },
+    "modified": "2022-11-16T12:28:30",
+    "modified_gmt": "2022-11-16T03:28:30",
+    "slug": "privacy-policy",
+    "status": "publish",
+    "type": "page",
+    "link": "https://muffin-blog.com/privacy-policy/",
+    "title": {
+      "rendered": "プライバシーポリシー"
+    },
+    "content": {
+      "rendered": "\n<p><strong>個人情報の取得</strong></p>\n\n\n\n<p>当サイトでは、Googleが提供している分析ツール「Google Analytics」を利用して、訪問者の行動を分析しています。（Google Analytics のデータのプライバシーとセキュリティについては<a rel=\"noreferrer noopener\" href=\"https://support.google.com/analytics/answer/6004245?hl=ja\" target=\"_blank\">コチラ</a>）</p>\n\n\n\n<p>このGoogle Analyticsはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。</p>\n\n\n\n<p><strong>個人情報の利用</strong></p>\n\n\n\n<p>当サイトでは、メールでのお問い合わせの際に、名前（ハンドルネーム）、メールアドレス等の個人情報をご登録いただく場合がございます。</p>\n\n\n\n<p>これらの個人情報は、質問に対する回答や必要な情報を電子メール等でご連絡する場合に利用させていただくものです。個人情報をご提供いただく際の目的以外では利用いたしません。</p>\n\n\n\n<p><strong>個人情報の保管</strong></p>\n\n\n\n<p>お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。</p>\n\n\n\n<p><strong>個人情報の第三者への開示</strong></p>\n\n\n\n<p>次の場合を除いて、お客様からいただいた個人情報を、第三者に開示することはありません。</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>提供者の同意がある場合</li>\n\n\n\n<li>法令に基づく場合</li>\n\n\n\n<li>不正行為やその他の違法行為を防ぐために個人情報の開示が必要となった場合</li>\n</ul>\n\n\n\n<p><strong>個人情報のお客様への開示</strong></p>\n\n\n\n<p>お客さまがご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、対応させていただきます。</p>\n\n\n\n<p><strong>広告の配信について</strong></p>\n\n\n\n<p>当サイトは第三者配信の広告サービス「Google Adsense グーグルアドセンス」を利用しています。</p>\n\n\n\n<p>広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookie（クッキー）を使用することがあります。</p>\n\n\n\n<p>Cookie（クッキー）を無効にする設定およびGoogleアドセンスに関する詳細は「<a rel=\"noreferrer noopener\" href=\"https://www.google.co.jp/policies/technologies/ads/\" target=\"_blank\">広告 – ポリシーと規約 – Google</a>」をご覧ください。</p>\n\n\n\n<p>第三者がコンテンツおよび宣伝を提供し、訪問者から直接情報を収集し、訪問者のブラウザにCookie（クッキー）を設定したりこれを認識したりする場合があります。</p>\n\n\n\n<p><strong>Amazonアソシエイトについて</strong></p>\n\n\n\n<p>Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p>\n\n\n\n<p><strong>免責事項</strong></p>\n\n\n\n<p>当サイトで掲載している画像の著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的ではございません。記事の内容や掲載画像等に問題がございましたら、各権利所有者様本人が直接メールでご連絡下さい。確認後、対応させて頂きます。</p>\n\n\n\n<p>当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。</p>\n\n\n\n<p>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。</p>\n\n\n\n<p>当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>\n\n\n\n<p><strong>著作権について</strong></p>\n\n\n\n<p>当サイトに掲載されている情報についての著作権は放棄しておりません。当サイト記事からの引用に関しましては「引用元の明示」によって無償で引用頂けます。ただし、全文転載はお断りいたしております。引用許可範囲についても、事前予告なくこれを変更する事があります。また、当サイトのRSSを利用し、コンテンツをそのまま盗用することも禁止しています。</p>\n\n\n\n<p><strong>プライバシーポリシーの変更について</strong></p>\n\n\n\n<p>当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。</p>\n\n\n\n<p>修正された最新のプライバシーポリシーは常に本ページにて開示されます。</p>\n\n\n\n<p><strong>お問い合せ</strong></p>\n\n\n\n<p>当サイトの個人情報の取扱に関するお問い合せは<a href=\"https://muffin-blog.com/contact/\" data-type=\"page\" data-id=\"29\" target=\"_blank\" rel=\"noreferrer noopener\">コチラ</a>までご連絡ください。</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>個人情報の取得 当サイトでは、Googleが提供している分析ツール「Google Analytics」を利用して、訪問者の行動を分析しています。（Google Analytics のデータのプライバシーとセキュリティにつ [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "open",
+    "template": "",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-3",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/3",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=3"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 3,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/3/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 2260,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/3/revisions/2260"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=3"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "date": "2021-08-07T08:44:27",
+    "date_gmt": "2021-08-07T08:44:27",
+    "guid": {
+      "rendered": "https://muffin-blog.com/?page_id=2"
+    },
+    "modified": "2021-08-07T08:44:27",
+    "modified_gmt": "2021-08-07T08:44:27",
+    "slug": "sample-page",
+    "status": "publish",
+    "type": "page",
+    "link": "https://muffin-blog.com/sample-page/",
+    "title": {
+      "rendered": "Sample Page"
+    },
+    "content": {
+      "rendered": "\n<p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Hi there! I&#8217;m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin&#8217; caught in the rain.)</p></blockquote>\n\n\n\n<p>&#8230;or something like this:</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n\n\n\n<p>As a new WordPress user, you should go to <a href=\"https://muffin-blog.com/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "open",
+    "template": "",
+    "meta": {
+      "swell_btn_cv_data": "",
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-2",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/comments?post=2"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "https://muffin-blog.com/wp-json/wp/v2/pages/2/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/media?parent=2"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

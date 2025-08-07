@@ -262,33 +262,73 @@ class WordPressDraftSaver:
     def set_post_metadata(self, post_id, meta_description, seo_title):
         """投稿のメタ情報設定"""
         try:
-            # Yoast SEO メタ情報設定
-            meta_data = {
+            # まず投稿の基本メタディスクリプションを設定
+            basic_update = requests.post(
+                f"{self.wp.api_url}/posts/{post_id}",
+                headers=self.wp.headers,
+                json={
+                    'excerpt': meta_description,
+                    'meta': {
+                        'description': meta_description
+                    }
+                }
+            )
+            
+            if basic_update.status_code == 200:
+                print(f"✅ 基本メタディスクリプション設定成功")
+            else:
+                print(f"⚠️ 基本メタディスクリプション設定失敗: {basic_update.status_code}")
+            
+            # Yoast SEOメタ情報設定（カスタムフィールドAPI使用）
+            yoast_meta_data = {
                 '_yoast_wpseo_title': seo_title,
                 '_yoast_wpseo_metadesc': meta_description,
-                '_yoast_wpseo_canonical': '',
                 '_yoast_wpseo_focuskw': 'audiobook.jp',
                 '_yoast_wpseo_meta-robots-noindex': '0',
                 '_yoast_wpseo_meta-robots-nofollow': '0'
             }
             
-            for meta_key, meta_value in meta_data.items():
-                meta_response = requests.post(
-                    f"{self.wp.api_url}/posts/{post_id}/meta",
-                    headers=self.wp.headers,
-                    json={
-                        'key': meta_key,
-                        'value': meta_value
-                    }
-                )
-                
-                if meta_response.status_code in [200, 201]:
-                    print(f"✅ メタ情報設定成功: {meta_key}")
-                else:
-                    print(f"⚠️ メタ情報設定失敗: {meta_key} - {meta_response.status_code}")
+            # Yoast SEO設定を投稿更新時にmetaフィールドとして設定
+            yoast_update = requests.post(
+                f"{self.wp.api_url}/posts/{post_id}",
+                headers=self.wp.headers,
+                json={
+                    'meta': yoast_meta_data
+                }
+            )
+            
+            if yoast_update.status_code == 200:
+                print(f"✅ Yoast SEO設定成功")
+            else:
+                print(f"⚠️ Yoast SEO設定失敗: {yoast_update.status_code}")
+                # 代替: 個別にカスタムフィールド設定を試行
+                self.set_custom_fields_individually(post_id, yoast_meta_data)
                     
         except Exception as e:
             print(f"⚠️ メタ情報設定エラー: {e}")
+    
+    def set_custom_fields_individually(self, post_id, meta_data):
+        """カスタムフィールドを個別に設定（代替方法）"""
+        print("🔄 個別カスタムフィールド設定を試行中...")
+        
+        for meta_key, meta_value in meta_data.items():
+            try:
+                # カスタムフィールドAPIを使用
+                field_response = requests.post(
+                    f"{self.wp.api_url}/posts/{post_id}",
+                    headers=self.wp.headers,
+                    json={
+                        'meta': {meta_key: meta_value}
+                    }
+                )
+                
+                if field_response.status_code == 200:
+                    print(f"✅ カスタムフィールド設定成功: {meta_key}")
+                else:
+                    print(f"⚠️ カスタムフィールド設定失敗: {meta_key} ({field_response.status_code})")
+                    
+            except Exception as e:
+                print(f"⚠️ カスタムフィールド設定エラー {meta_key}: {e}")
     
     def set_post_categories_tags(self, post_id, categories, tags):
         """投稿にカテゴリーとタグを設定"""
