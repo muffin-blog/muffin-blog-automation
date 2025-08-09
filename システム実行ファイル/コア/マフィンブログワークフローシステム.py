@@ -22,6 +22,9 @@ class MuffinBlogWorkflowSystem:
     """マフィンブログワークフロー管理システム"""
     
     def __init__(self):
+        # セッション開始時の強制アラート
+        self.session_start_alert()
+        
         # 各システムの初期化
         self.template_system = MuffinBlogArticleTemplate()
         self.draft_saver = WordPressDraftSaver()
@@ -34,6 +37,64 @@ class MuffinBlogWorkflowSystem:
             "wordpress_result": None,
             "portfolio_updated": False
         }
+    
+    # ========================
+    # アラートシステム
+    # ========================
+    
+    def session_start_alert(self) -> bool:
+        """セッション開始時の強制確認アラート"""
+        print("\n🚨 CRITICAL ALERT: セッション開始時の必須確認事項")
+        print("=" * 60)
+        
+        start_checklist = [
+            "マフィンブログ記事作成_完全自動化ルール.md を読み込み済みか？",
+            "前回のセッション結果を確認したか？",  
+            "ユーザーの指示内容を正確に理解したか？",
+            "Phase A-E の実行手順を把握しているか？",
+            "【重要】Phase A完了後は必ずユーザー確認が必要であることを理解したか？",
+            "【重要】Phase C実行時はGit操作まで含めて完了させることを理解したか？"
+        ]
+        
+        all_confirmed = True
+        for i, item in enumerate(start_checklist, 1):
+            print(f"\n{i}. {item}")
+            response = input("確認済み [y/n]: ").lower().strip()
+            if response != 'y':
+                print(f"❌ 未確認: {item}")
+                all_confirmed = False
+            else:
+                print(f"✅ 確認済み: {item}")
+        
+        if not all_confirmed:
+            print(f"\n❌ セッション開始前に未確認項目があります")
+            print("すべて確認してから作業を開始してください")
+            return False
+        
+        print(f"\n✅ セッション開始確認完了 - マフィンブログ記事作成を開始します")
+        return True
+    
+    def phase_completion_alert(self, phase_name: str, checklist: list) -> bool:
+        """Phase完了前の強制確認アラート"""
+        print(f"\n🚨 ALERT: {phase_name} 完了確認")
+        print("=" * 50)
+        
+        all_completed = True
+        for i, item in enumerate(checklist, 1):
+            response = input(f"{i}. {item} [y/n]: ").lower().strip()
+            if response != 'y':
+                print(f"❌ 未完了: {item}")
+                all_completed = False
+            else:
+                print(f"✅ 完了: {item}")
+        
+        if not all_completed:
+            print(f"\n❌ {phase_name} に未完了項目があります")
+            print("次のPhaseに移行する前に完了してください")
+            return False
+        
+        print(f"\n✅ {phase_name} 完了確認済み - 次のPhaseに移行します")
+        return True
     
     # ========================
     # Phase 1: 記事作成フェーズ  
@@ -74,6 +135,21 @@ class MuffinBlogWorkflowSystem:
                 "keywords": target_keywords,
                 "quality_score": quality_check["score"]
             }
+            
+            # 🚨 Phase A完了確認アラート（強化版）
+            phase_a_checklist = [
+                "NotebookLM要約を正しく解析したか？",
+                "WebSearchで最新情報を収集したか？",
+                "マフィンブログフォーマットで執筆したか？",
+                "AI表現を完全に除去したか？", 
+                "品質チェックに合格したか？",
+                "【重要】ユーザーに記事確認を依頼したか？",
+                "【重要】ユーザー承認を得てからPhase Bに進むか？"
+            ]
+            
+            if not self.phase_completion_alert("Phase A", phase_a_checklist):
+                return {"success": False, "message": "Phase A未完了のため処理を中断"}
+            
             return {"success": True, "article_data": self.workflow_state["article_data"]}
         else:
             print("❌ 品質チェック不合格")
@@ -189,6 +265,18 @@ class MuffinBlogWorkflowSystem:
             # マフィンブログ完成記事フォルダにも保存
             self.save_to_completed_articles()
             
+            # 🚨 Phase B完了確認アラート
+            phase_b_checklist = [
+                "SEO8項目すべて設定したか？",
+                "パーマリンクを確定したか？",
+                "カテゴリ・タグを確定したか？",
+                "アイキャッチ画像を作成したか？", 
+                "完成記事フォルダに保存したか？"
+            ]
+            
+            if not self.phase_completion_alert("Phase B", phase_b_checklist):
+                return {"success": False, "message": "Phase B未完了のため処理を中断"}
+            
             return result
         else:
             print(f"❌ WordPress保存失敗: {result['error']}")
@@ -270,6 +358,22 @@ class MuffinBlogWorkflowSystem:
             
             print("✅ ポートフォリオサイト更新完了")
             self.workflow_state["portfolio_updated"] = True
+            
+            # 🚨 Phase C完了確認アラート（強化版）
+            phase_c_checklist = [
+                "編集完了URLを受け取ったか？",
+                "articles.jsonに新記事を【先頭に】追加したか？",
+                "記事情報が正確か？(title, url, description, date, tags)",
+                "重複記事がないか確認したか？",
+                "Git add . を実行したか？",
+                "Git commit を実行したか？",
+                "Git push origin master を実行したか？",
+                "Vercel自動デプロイが開始されたか？",
+                "ポートフォリオサイトで最新記事が表示されることを確認したか？"
+            ]
+            
+            if not self.phase_completion_alert("Phase C", phase_c_checklist):
+                return {"success": False, "message": "Phase C未完了のため処理を中断"}
             
             return {"success": True, "updated_articles_count": len(portfolio_data["blogArticles"])}
             
@@ -442,6 +546,18 @@ class MuffinBlogWorkflowSystem:
             
             print(f"✅ セッション日報生成完了: {report_path}")
             
+            # 🚨 Phase D完了確認アラート
+            phase_d_checklist = [
+                "遭遇した課題の自動解決策を実装したか？",
+                "次回同様の問題を防ぐルール自動更新をしたか？",
+                "効率化できる作業の自動化コードを生成したか？",
+                "ワークフロー最適化を実行したか？",
+                "改善内容をセッション記録に保存したか？"
+            ]
+            
+            if not self.phase_completion_alert("Phase D", phase_d_checklist):
+                return {"success": False, "message": "Phase D未完了のため処理を中断"}
+            
             return {
                 "success": True,
                 "report_path": report_path,
@@ -478,6 +594,17 @@ class MuffinBlogWorkflowSystem:
         article_proposals = self.generate_article_proposals(latest_trends, competitor_analysis)
         
         print("✅ 次記事準備完了")
+        
+        # 🚨 Phase E完了確認アラート
+        phase_e_checklist = [
+            "Audible・Kindle・audiobook.jp最新情報を収集したか？",
+            "オーディオブック関連トレンドを把握したか？",
+            "競合記事分析を実行したか？",
+            "次記事企画提案を作成したか？"
+        ]
+        
+        if not self.phase_completion_alert("Phase E", phase_e_checklist):
+            return {"success": False, "message": "Phase E未完了のため処理を中断"}
         
         return {
             "trends": latest_trends,
@@ -571,6 +698,18 @@ class MuffinBlogWorkflowSystem:
         
         print("\n🎉 完全ワークフロー完了!")
         print("=" * 60)
+        
+        # 🚨 最終確認アラート
+        final_checklist = [
+            "全Phase（A-E）が完了したか？",
+            "ルール違反がないか？",
+            "ファイル保存・命名規則に準拠したか？",
+            "ユーザーに完了報告をしたか？",
+            "Phase D で改善事項を記録したか？"
+        ]
+        
+        if not self.phase_completion_alert("最終確認", final_checklist):
+            return {"workflow_completed": False, "message": "最終確認未完了のため処理を中断"}
         
         return {
             "workflow_completed": True,
