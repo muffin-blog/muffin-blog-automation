@@ -292,6 +292,12 @@ class CompleteAutomationWorkflowSystem:
                 return results
             results["completed_phases"].append("記事情報抽出")
             
+            # 絶対的見本テンプレート参照の確認メッセージ
+            print("\n🎯 【重要】絶対的見本テンプレート参照義務")
+            print("   記事作成時は以下を必ず参照してください：")
+            print("   ファイル: /ドキュメント/テンプレート見本/読書苦手_Audible_聴く読書_完成記事_絶対的見本テンプレート.md")
+            print("   この見本記事と同等以上の品質を確保してください")
+            
             # Phase 2: ポートフォリオ更新
             print("\n🔄 Phase 2: ポートフォリオarticles.json更新")
             if not self.update_portfolio_articles_json(article_info):
