@@ -109,7 +109,7 @@ class CompleteAutomationWorkflowSystem:
         """記事内容からタグを自動抽出（v3.0品質テンプレート対応）"""
         tags = []
         
-        # 新品質基準：メイン1個+サービス1個+機能1個+カテゴリ1個+特典1個の5個構成
+        # タグ抽出ルール：メイン・サービス・機能・カテゴリ・特典キーワードをバランス良く
         keyword_map = {
             # メインキーワード（検索ボリューム重視）
             "読書苦手": ["読書苦手", "本が読めない", "読書継続"],
@@ -137,47 +137,30 @@ class CompleteAutomationWorkflowSystem:
             "無料": ["30日無料", "無料体験", "無料お試し"],
             "比較": ["価格比較", "サービス比較"],
             "セール": ["セール情報", "キャンペーン"],
-            "おすすめ": ["おすすめ", "厳選"]
+            "おすすめ": ["おすすめ", "厳選"],
+            
+            # 関連キーワード（追加タグ）
+            "習慣": ["読書習慣", "習慣化"],
+            "解決": ["解決法", "解決方法"],
+            "初心者": ["初心者", "始め方"],
+            "体験": ["無料体験", "お試し"]
         }
         
         text = f"{title} {description}".lower()
         
-        # 5個以内に制限し、カテゴリバランスを考慮
-        main_keywords = []
-        service_keywords = []
-        function_keywords = []
-        category_keywords = []  
-        benefit_keywords = []
-        
+        # 関連するすべてのタグを抽出（個数制限なし）
         for keyword, tag_list in keyword_map.items():
             if keyword.lower() in text:
-                if keyword in ["読書苦手", "ダイエット", "睡眠", "投資"]:
-                    main_keywords.extend(tag_list[:1])  # メインは1個まで
-                elif keyword in ["audiobook", "マットレス", "UQ", "Audible"]:
-                    service_keywords.extend(tag_list[:1])  # サービスは1個まで
-                elif keyword in ["聴く読書", "海外利用", "食事制限"]:
-                    function_keywords.extend(tag_list[:1])  # 機能は1個まで
-                elif keyword in ["オーディオブック", "健康", "通信"]:
-                    category_keywords.extend(tag_list[:1])  # カテゴリは1個まで
-                elif keyword in ["無料", "比較", "セール", "おすすめ"]:
-                    benefit_keywords.extend(tag_list[:1])  # 特典は1個まで
+                tags.extend(tag_list)
         
-        # バランス良く5個選択
-        tags = []
-        tags.extend(main_keywords[:1])
-        tags.extend(service_keywords[:1])
-        tags.extend(function_keywords[:1])
-        tags.extend(category_keywords[:1])
-        tags.extend(benefit_keywords[:1])
-        
-        # 重複除去
+        # 重複除去（順序保持）
         tags = list(dict.fromkeys(tags))
         
-        # 5個に達しない場合の補完
+        # 最低限のタグを確保
         if len(tags) < 3:
             tags.extend(["ブログ記事", "情報", "解説"])
         
-        return tags[:5]  # 最大5個に制限
+        return tags
     
     def update_portfolio_articles_json(self, article_info: Dict) -> bool:
         """
