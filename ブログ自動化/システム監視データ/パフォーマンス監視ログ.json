@@ -259,5 +259,34 @@
       "overall": true
     },
     "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T18:48:38.758377",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T18:48:39.186182",
+    "operation": "health_check",
+    "duration": 1754905719.186177,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
   }
 ]
