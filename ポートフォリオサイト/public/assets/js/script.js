@@ -265,10 +265,29 @@ async function loadProfileData() {
 async function loadArticlesData() {
     try {
         console.log('🚀 記事データ読み込み開始');
-        const response = await fetch('/content/articles/articles.json');
-        console.log('📡 Fetch response:', response.status, response.statusText);
+        let response;
         
-        if (!response.ok) throw new Error(`記事データの読み込みに失敗: ${response.status}`);
+        // 複数のパスを試行
+        const paths = ['/content/articles/articles.json', './content/articles/articles.json', 'content/articles/articles.json'];
+        
+        for (const path of paths) {
+            try {
+                console.log(`📡 試行中: ${path}`);
+                response = await fetch(path);
+                if (response.ok) {
+                    console.log(`✅ 成功: ${path} (${response.status})`);
+                    break;
+                }
+            } catch (e) {
+                console.log(`❌ 失敗: ${path} - ${e.message}`);
+                continue;
+            }
+        }
+        
+        if (!response || !response.ok) {
+            throw new Error('全てのパスで記事データ読み込みに失敗');
+        }
+        
         const data = await response.json();
         console.log('📄 JSON読み込み完了:', data);
         
