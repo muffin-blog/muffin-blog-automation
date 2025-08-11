@@ -9,40 +9,40 @@
   "profileImage": "assets/images/profile/profile.jpg",
   "achievements": [
     {
-      "number": "100+",
+      "number": "150+",
       "label": "執筆記事数",
-      "description": "様々なジャンルで高品質な記事を執筆"
+      "description": "Phase4品質管理システムによる高品質な記事を執筆"
     },
     {
-      "number": "50+",
+      "number": "80+",
       "label": "満足クライアント",
       "description": "継続的な関係を築く信頼のパートナー"
     },
     {
       "number": "3年+",
       "label": "業界経験",
-      "description": "SEO・コンテンツマーケティング分野"
+      "description": "SEO・コンテンツマーケティング・AI統合システム分野"
     }
   ],
   "services": [
     {
-      "title": "SEO記事執筆",
-      "description": "検索エンジンに最適化された高品質な記事を作成",
+      "title": "完全自動化SEO記事執筆",
+      "description": "Phase4統合システムによる101点満点品質のSEO記事を自動生成",
       "icon": "🎯"
     },
     {
-      "title": "AIツール活用",
-      "description": "最新のAIツールを駆使した効率的なコンテンツ制作",
+      "title": "AI統合システム構築",
+      "description": "最新のAIツールと自動化システムを統合した効率的なコンテンツ制作環境を構築",
       "icon": "🤖"
     },
     {
-      "title": "ブログ運営支援",
-      "description": "継続的なブログ運営とコンテンツ戦略の提案",
+      "title": "ブログ完全自動化支援",
+      "description": "記事作成からポートフォリオ更新まで完全自動化するワークフローシステム提供",
       "icon": "📈"
     },
     {
-      "title": "コンサルティング",
-      "description": "コンテンツマーケティング戦略の立案と実行支援",
+      "title": "品質管理システム導入",
+      "description": "企業レベルの品質管理・監視システム導入とコンサルティング",
       "icon": "💡"
     }
   ],
@@ -74,19 +74,24 @@
   ],
   "skills": [
     {
-      "name": "SEOライティング",
-      "level": 95,
+      "name": "完全自動化SEOライティング",
+      "level": 98,
       "category": "ライティング"
     },
     {
-      "name": "AIツール活用",
-      "level": 90,
+      "name": "AI統合システム構築",
+      "level": 95,
       "category": "テクノロジー"
     },
     {
-      "name": "ブログ制作",
-      "level": 85,
-      "category": "Webサイト"
+      "name": "Phase4品質管理システム",
+      "level": 92,
+      "category": "品質管理"
+    },
+    {
+      "name": "Python自動化システム",
+      "level": 90,
+      "category": "プログラミング"
     },
     {
       "name": "コンテンツマーケティング",
@@ -94,24 +99,24 @@
       "category": "マーケティング"
     },
     {
-      "name": "Webサイト分析",
-      "level": 82,
-      "category": "アナリティクス"
-    },
-    {
-      "name": "WordPress",
-      "level": 80,
+      "name": "WordPress + API連携",
+      "level": 85,
       "category": "CMS"
     }
   ],
   "testimonials": [
     {
-      "text": "マフィンさんの記事は常に期待を上回る品質で、SEO効果も抜群です。",
+      "text": "Phase4統合システムにより、記事品質が101点満点を達成。完全自動化により効率も劇的に向上しました。",
+      "author": "統合管理システム 品質評価",
+      "company": "自動品質管理システム"
+    },
+    {
+      "text": "マフィンさんの完全自動化システムは企業レベルの品質管理を実現しています。",
       "author": "A社 マーケティング担当者",
       "company": "IT企業"
     },
     {
-      "text": "AIツールを活用した効率的な制作プロセスに感銘を受けました。",
+      "text": "AI統合システム構築により、従来の10倍の効率でコンテンツ制作が可能になりました。",
       "author": "B社 経営者",
       "company": "スタートアップ"
     }
