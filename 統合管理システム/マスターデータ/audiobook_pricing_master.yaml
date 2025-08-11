@@ -1,0 +1,89 @@
+pricing_master:
+  schema_version: "1.0"
+  updated_at_jst: "2025-08-11T00:00:00+09:00"
+  source_of_truth:
+    type: "user_provided_md"
+    path_hint: "content/master/pricing/audiobook_pricing.md"
+    note: "本YAMLはユーザーの貼り付け内容を正とし、外部推測はしない"
+
+  services:
+    - service_id: "audible"
+      display_name_ja: "Audible"
+      locale: "JP"
+      plans:
+        - plan_id: "audible_standard"
+          name_ja: "スタンダードプラン"
+          billing: "monthly"
+          monthly_fee_jpy: 880
+          trial:
+            days: 30
+            note: "申込ページで最終確認"
+          benefits:
+            - "毎月1冊、全作品から選択可能（聴き放題対象外も含む）"
+          constraints_and_notes:
+            - "選択した本の利用条件（永久所有か会員期間限定か）は申込時の規約で必ず確認。仕様変更の可能性あり。"
+            - "一部タイトルはプラン対象外・提供形態が異なる場合あり（"全作品"の但し書きをUI上で明記）。"
+        - plan_id: "audible_unlimited"
+          name_ja: "聴き放題プラン"
+          billing: "monthly"
+          monthly_fee_jpy: 1500
+          trial:
+            days: 30
+            note: "申込ページで最終確認"
+          benefits:
+            - "対象作品が聴き放題"
+          catalog_reference:
+            headline_count: "20万冊以上"
+            as_of: "2024"
+            note: "冊数は入替・追加で変動。固定値として表示しない。"
+          constraints_and_notes:
+            - ""対象作品が聴き放題"と表記（"全作品"と断定しない）。"
+            - "出版社都合等で提供範囲は随時変更される可能性あり。"
+
+    - service_id: "audiobook_jp"
+      display_name_ja: "audiobook.jp"
+      locale: "JP"
+      plans:
+        - plan_id: "abj_unlimited_monthly"
+          name_ja: "聴き放題（月払い）"
+          billing: "monthly"
+          monthly_fee_jpy: 1330
+          trial:
+            days: 14
+            note: "申込ページで最終確認"
+          benefits:
+            - "対象作品が聴き放題"
+          constraints_and_notes:
+            - ""対象作品"の但し書きを必ず併記。人気作が対象外の場合あり。"
+        - plan_id: "abj_unlimited_annual"
+          name_ja: "聴き放題（年割）"
+          billing: "annual"
+          annual_fee_jpy: 9990
+          monthly_equivalent_jpy: 833
+          trial:
+            days: 14
+            note: "申込ページで最終確認"
+          benefits:
+            - "対象作品が聴き放題"
+          constraints_and_notes:
+            - "途中解約・返金条件はLP/規約で確認必須。"
+
+  global_cautions:
+    - "本データは日本向け料金。海外のAudible情報（Plus/Premium Plus等）は参照禁止。"
+    - "無料体験日数・提供冊数・対象範囲はキャンペーン/編成で変動。表示時は"例示/現時点"表現に限定。"
+    - "価格表記は税込前提。サイトUIで税込/税抜の明記がある場合はそれを優先。"
+    - ""全作品"という断定表現は使用禁止。必ず"対象作品"と記載。"
+    - "ユーザーのマスターファイルが更新されたら本YAMLも即時同期。外部スクレイプよりもマスターファイルを絶対優先。"
+
+  cli_hints:
+    rendering:
+      - "料金表示は：{plan_name}：{price}円／{billing}、{trial_days}日間の無料体験あり（あれば）。"
+      - "キャッチは"対象作品が聴き放題"を統一文言として使用。"
+      - "冊数は"{headline_count}（{as_of}時点）"のように時点付きで注記、本文で断定しない。"
+    validation_before_publish:
+      - "markdown_masterのタイムスタンプがYAMLより新しい場合は差分確認を要求。"
+      - ""スタンダードプランの所有条件"を申込画面の規約で確認フラグ（unknownならUIに"要確認"バッジ）。"
+      - "無料体験の有無・日数をLPで最終チェック。差異があればYAMLへ反映待ちにして警告。"
+    seo_copy_guardrails:
+      - ""全作品"や"永久に聴ける"などの断定を禁止。"
+      - ""最新作も随時追加"は可。ただし"常に最新作が含まれる"は不可。"
