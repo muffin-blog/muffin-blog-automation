@@ -1,0 +1,29 @@
+{
+  "東京": {
+    "location": "東京",
+    "date": "2025-08-09",
+    "weather": "晴れ",
+    "temperature": "17°C",
+    "humidity": "86%",
+    "wind": "17m/s",
+    "track_condition_forecast": "良"
+  },
+  "阪神": {
+    "location": "阪神",
+    "date": "2025-08-09",
+    "weather": "大雨",
+    "temperature": "24°C",
+    "humidity": "70%",
+    "wind": "6m/s",
+    "track_condition_forecast": "不良"
+  },
+  "中山": {
+    "location": "中山",
+    "date": "2025-08-09",
+    "weather": "大雨",
+    "temperature": "18°C",
+    "humidity": "55%",
+    "wind": "18m/s",
+    "track_condition_forecast": "不良"
+  }
+}
