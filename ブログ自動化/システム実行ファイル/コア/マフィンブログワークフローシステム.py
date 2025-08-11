@@ -334,7 +334,7 @@ class MuffinBlogWorkflowSystem:
         article_info = self.extract_wordpress_article_info(wordpress_url)
         
         # articles.json更新
-        portfolio_path = "/Users/satoumasamitsu/osigoto/ポートフォリオサイト/public/content/articles/articles.json"
+        portfolio_path = "/Users/satoumasamitsu/Desktop/osigoto/ポートフォリオサイト/public/content/articles/articles.json"
         
         try:
             # 既存のarticles.json読み込み

@@ -24,7 +24,7 @@ class CompleteAutomationWorkflowSystem:
     def __init__(self):
         """初期化"""
         self.base_path = "/Users/satoumasamitsu/osigoto/ブログ自動化/"
-        self.portfolio_path = "/Users/satoumasamitsu/osigoto/ポートフォリオサイト/"
+        self.portfolio_path = "/Users/satoumasamitsu/Desktop/osigoto/ポートフォリオサイト/"
         self.articles_json_path = f"{self.portfolio_path}public/content/articles/articles.json"
         self.knowledge_base_path = f"{self.base_path}日報・学習記録/"
         
