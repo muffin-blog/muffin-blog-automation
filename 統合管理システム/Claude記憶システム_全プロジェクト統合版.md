@@ -21,17 +21,17 @@
 ## 📊 現在のプロジェクト状況（最終更新：2025-08-11）
 
 ### 🚀 ブログ自動化システム
-- **状況**: 完全稼働中
-- **最新**: システム統合・GitHub同期完了（2025-08-11）
+- **状況**: Phase4統合システム完全稼働中
+- **最新**: Phase4品質管理システム統合完了（2025-08-11）
 - **次回**: 記事作成要求時に完全自動実行
-- **重要**: FAQブロック削除済み、画像生成削除済み
+- **重要**: 101点満点品質システム導入済み
 - **緊急事項**: なし
 
 ### 💼 ライティング案件（ミネルヴスリープ）  
-- **状況**: 布団ホコリ対策記事フィードバック待ち
-- **完成**: 社会人睡眠時間記事（2025.08.03完成）
-- **方針**: ビジネスパートナー、能動的価値提供
-- **次回**: クライアントフィードバック後執筆再開
+- **状況**: FINAL版テンプレート完成・ポートフォリオ連携システム構築完了
+- **最新**: 記事作成完全テンプレート_FINAL.md作成（2025-08-11）
+- **システム**: minerva_portfolio_connector.py実装済み
+- **次回**: 新記事作成時はFINAL版テンプレート使用必須
 
 ### 🏇 競馬予想システム
 - **状況**: システム完成、運用開始準備完了
@@ -49,28 +49,30 @@
 
 ### 🔧 メインルールファイル（絶対忘れてはいけない場所）
 
-#### ブログ自動化
+#### ブログ自動化（Phase4統合版）
 ```bash
-# メインルール
-/Users/satoumasamitsu/osigoto/ブログ自動化/ドキュメント/プロジェクト管理文書/マフィンブログ記事作成_完全自動化ルール.md
+# メインルール（統合管理システム内）
+/Users/satoumasamitsu/Desktop/osigoto/統合管理システム/マフィンブログ記事作成_完全自動化ルール.md
 
-# システム本体  
-/Users/satoumasamitsu/osigoto/ブログ自動化/システム実行ファイル/コア/完全自動化ワークフローシステム.py
+# Phase4統合システム本体  
+/Users/satoumasamitsu/Desktop/osigoto/ブログ自動化/システム実行ファイル/コア/継続的品質管理統合システム.py
+/Users/satoumasamitsu/Desktop/osigoto/ブログ自動化/システム実行ファイル/コア/投稿前確認システム.py
+/Users/satoumasamitsu/Desktop/osigoto/ブログ自動化/システム実行ファイル/コア/完全自動化ワークフローシステム.py
 
-# 品質テンプレート
-/Users/satoumasamitsu/osigoto/ブログ自動化/ドキュメント/プロジェクト管理文書/マフィンブログ記事作成_完全品質テンプレート_v3.md
+# 絶対的見本テンプレート
+/Users/satoumasamitsu/Desktop/osigoto/ブログ自動化/絶対的見本テンプレート.md
 ```
 
-#### ライティング案件
+#### ライティング案件（ミネルヴスリープ）
 ```bash  
-# ビジネスパートナーシップルール
-/Users/satoumasamitsu/osigoto/ライティング案件/ミネルヴスリープ/ルール/partnership_rules.md
+# FINAL版テンプレート
+/Users/satoumasamitsu/Desktop/osigoto/ライティング案件/ミネルヴスリープ/テンプレート/記事作成完全テンプレート_FINAL.md
 
-# 記事作成ガイド
-/Users/satoumasamitsu/osigoto/ライティング案件/ミネルヴスリープ/ルール/記事作成ガイド.md
+# ポートフォリオ連携システム
+/Users/satoumasamitsu/Desktop/osigoto/ライティング案件/ミネルヴスリープ/minerva_portfolio_connector.py
 
-# 進捗管理
-/Users/satoumasamitsu/osigoto/ライティング案件/ミネルヴスリープ/管理/progress_memo.md
+# 使い方ガイド
+/Users/satoumasamitsu/Desktop/osigoto/ライティング案件/ミネルヴスリープ/記事追加システム使い方.md
 ```
 
 #### 競馬予想システム
@@ -93,22 +95,22 @@
 
 ### 📝 記録・ログファイル
 
-#### 日報・学習記録（メイン記録場所）
+#### 日報・学習記録（統合管理システム内）
 ```bash
-# メイン記録フォルダ
-/Users/satoumasamitsu/osigoto/ブログ自動化/日報・学習記録/
+# 統合日報フォルダ
+/Users/satoumasamitsu/Desktop/osigoto/統合管理システム/日報・ログ/
 
 # 最新記録確認コマンド
-ls -la "/Users/satoumasamitsu/osigoto/ブログ自動化/日報・学習記録/" | tail -3
+ls -la "/Users/satoumasamitsu/Desktop/osigoto/統合管理システム/日報・ログ/" | tail -3
 ```
 
 #### 完成記事・成果物
 ```bash
 # ブログ記事
-/Users/satoumasamitsu/osigoto/ブログ自動化/マフィンブログ完成記事/
+/Users/satoumasamitsu/Desktop/osigoto/ブログ自動化/マフィンブログ完成記事/
 
 # ライティング案件完成記事
-/Users/satoumasamitsu/osigoto/ライティング案件/ミネルヴスリープ/記事/完成記事/
+/Users/satoumasamitsu/Desktop/osigoto/ライティング案件/ミネルヴスリープ/記事/2_完成記事/
 ```
 
 ---
@@ -120,7 +122,7 @@ ls -la "/Users/satoumasamitsu/osigoto/ブログ自動化/日報・学習記録/"
 
 ### Step 2: 最新日報を確認（3秒）  
 ```bash
-ls -la "/Users/satoumasamitsu/osigoto/ブログ自動化/日報・学習記録/" | tail -3
+ls -la "/Users/satoumasamitsu/Desktop/osigoto/統合管理システム/日報・ログ/" | tail -3
 ```
 
 ### Step 3: ユーザー指示内容を判別（1秒）
