@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from core.muffin_blog_article_template import MuffinBlogArticleTemplate
 from core.wordpress_draft_saver import WordPressDraftSaver
-from image_generation.unsplash_image_generator import UnsplashImageGenerator
+# from image_generation.unsplash_image_generator import UnsplashImageGenerator  # 削除：アイキャッチ画像は手動作成
 
 class MuffinBlogWorkflowSystem:
     """マフィンブログワークフロー管理システム"""
@@ -28,7 +28,7 @@ class MuffinBlogWorkflowSystem:
         # 各システムの初期化
         self.template_system = MuffinBlogArticleTemplate()
         self.draft_saver = WordPressDraftSaver()
-        self.image_generator = UnsplashImageGenerator()
+        # self.image_generator = UnsplashImageGenerator()  # 削除：アイキャッチ画像は手動作成
         
         # ワークフロー状態管理
         self.workflow_state = {
@@ -270,7 +270,7 @@ class MuffinBlogWorkflowSystem:
                 "SEO8項目すべて設定したか？",
                 "パーマリンクを確定したか？",
                 "カテゴリ・タグを確定したか？",
-                "アイキャッチ画像を作成したか？", 
+                "アイキャッチ画像alt属性を設定したか？", 
                 "完成記事フォルダに保存したか？"
             ]
             

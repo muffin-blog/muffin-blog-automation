@@ -26,6 +26,7 @@ class CompleteAutomationWorkflowSystem:
         self.base_path = "/Users/satoumasamitsu/osigoto/ブログ自動化/"
         self.portfolio_path = "/Users/satoumasamitsu/osigoto/ポートフォリオサイト/"
         self.articles_json_path = f"{self.portfolio_path}public/content/articles/articles.json"
+        self.knowledge_base_path = f"{self.base_path}日報・学習記録/"
         
     def detect_url_input(self, user_message: str) -> Optional[str]:
         """
@@ -74,12 +75,13 @@ class CompleteAutomationWorkflowSystem:
             title = title_match.group(1).strip() if title_match else "記事タイトル"
             title = title.replace(' - マフィンブログ', '').strip()
             
-            # メタディスクリプション抽出
-            desc_match = re.search(r'<meta name="description" content="([^"]+)"', content)
-            description = desc_match.group(1).strip() if desc_match else f"{title}に関する記事"
+            # メインキーワード自動推定（タイトルから）
+            main_keyword = self._detect_main_keyword(title)
             
-            # 記事内容からタグを推測
-            tags = self._extract_tags_from_content(title, description, content)
+            # 絶対的見本テンプレートSEO仕様に基づく生成
+            optimized_description = self.generate_meta_description(title, main_keyword, content)
+            slug = self.generate_slug(title, main_keyword)
+            tags = self._extract_tags_from_content(title, optimized_description, content)
             
             # 今日の日付を使用
             date = datetime.now().strftime("%Y-%m-%d")
@@ -87,17 +89,21 @@ class CompleteAutomationWorkflowSystem:
             article_info = {
                 "title": title,
                 "url": url,
-                "description": description,
+                "description": optimized_description,
+                "slug": slug,
+                "main_keyword": main_keyword,
                 "date": date,
                 "tags": tags
             }
             
-            print(f"✅ 記事情報自動抽出完了:")
+            print(f"✅ 記事情報自動抽出完了（絶対的見本テンプレートSEO仕様適用）:")
             print(f"   タイトル: {title}")
+            print(f"   メインキーワード: {main_keyword}")
             print(f"   URL: {url}")
-            print(f"   説明: {description}")
+            print(f"   最適化メタディスクリプション: {optimized_description}")
+            print(f"   SEO最適化スラッグ: {slug}")
             print(f"   日付: {date}")
-            print(f"   タグ: {tags}")
+            print(f"   最適化タグ: {tags}")
             
             return article_info
             
@@ -105,11 +111,154 @@ class CompleteAutomationWorkflowSystem:
             print(f"❌ 記事情報抽出エラー: {e}")
             return None
     
+    def generate_meta_description(self, title: str, main_keyword: str, content: str) -> str:
+        """
+        絶対的見本テンプレートSEO仕様に基づくメタディスクリプション生成
+        
+        ルール:
+        - 文字数：120-160文字以内
+        - メインキーワードを自然に含める
+        - ユーザーの悩み・解決策・メリットを含める
+        - 行動を促す文言（無料体験、今すぐなど）を入れる
+        - 感情に訴える表現を使う
+        """
+        # 基本パターン: [感情訴求] + [メインキーワード] + [解決策] + [特典・安心要素] + [行動促進]
+        
+        # 感情訴求フレーズ
+        emotional_phrases = [
+            f"{main_keyword}でお悩みの方必見！",
+            f"{main_keyword}の悩みを解決！",
+            f"{main_keyword}でも大丈夫！"
+        ]
+        
+        # 解決策フレーズ
+        solution_phrases = [
+            "簡単に始められる方法を",
+            "効果的な解決策を",
+            "おすすめの方法を"
+        ]
+        
+        # 行動促進フレーズ
+        action_phrases = [
+            "今すぐ試してみませんか？",
+            "始めてみてください！", 
+            "実感してみませんか？"
+        ]
+        
+        # コンテンツに応じた特典要素の検出
+        benefits = []
+        if "無料" in content or "30日" in content:
+            benefits.append("30日無料体験")
+        if "解約" in content or "いつでも" in content:
+            benefits.append("いつでも解約可能")
+            
+        # メタディスクリプション構築
+        emotion = emotional_phrases[0]
+        solution = solution_phrases[0] if solution_phrases else ""
+        benefit_text = "で" + "・".join(benefits) if benefits else ""
+        action = action_phrases[0]
+        
+        meta_desc = f"{emotion}{solution}詳しく解説{benefit_text}。{action}"
+        
+        # 文字数調整（120-160文字）
+        if len(meta_desc) > 160:
+            meta_desc = meta_desc[:157] + "..."
+        elif len(meta_desc) < 120:
+            meta_desc = meta_desc + "詳細な情報とコツをお伝えします。"
+            
+        return meta_desc
+
+    def generate_slug(self, title: str, main_keyword: str) -> str:
+        """
+        絶対的見本テンプレートSEO仕様に基づくスラッグ生成
+        
+        ルール:
+        - 英語で作成（日本語不可）
+        - ハイフン区切りで単語を分ける
+        - メインキーワードを含める
+        - 簡潔で覚えやすい（3-6単語程度）
+        """
+        # 主要キーワードの英語変換マップ
+        keyword_translation = {
+            "読書苦手": "reading-dislike",
+            "Audible": "audible",
+            "オーディブル": "audible", 
+            "聴く読書": "listening-reading",
+            "オーディオブック": "audiobook",
+            "本が読めない": "cannot-read-books",
+            "読書継続": "reading-habit",
+            "ながら読書": "multitask-reading",
+            "audiobook": "audiobook-jp",
+            "睡眠": "sleep",
+            "ダイエット": "diet",
+            "投資": "investment"
+        }
+        
+        # メインキーワードを英語に変換
+        main_key_eng = keyword_translation.get(main_keyword, "guide")
+        
+        # タイトルから重要な要素を抽出
+        if "解決" in title or "解決法" in title:
+            pattern = f"{main_key_eng}-solution"
+        elif "始め方" in title or "方法" in title:
+            pattern = f"{main_key_eng}-guide"
+        elif "比較" in title:
+            pattern = f"{main_key_eng}-comparison"
+        elif "おすすめ" in title:
+            pattern = f"{main_key_eng}-recommend"
+        else:
+            pattern = f"{main_key_eng}-complete-guide"
+            
+        return pattern
+
+    def _detect_main_keyword(self, title: str) -> str:
+        """
+        タイトルからメインキーワードを自動検出
+        
+        Args:
+            title: 記事タイトル
+            
+        Returns:
+            検出されたメインキーワード
+        """
+        # 優先度順のキーワードマッピング
+        keyword_priority = [
+            "読書苦手", "Audible", "オーディブル", "聴く読書", 
+            "audiobook", "オーディオブック", "本が読めない", 
+            "読書継続", "ダイエット", "睡眠", "投資", "格安SIM",
+            "マットレス", "UQモバイル"
+        ]
+        
+        title_lower = title.lower()
+        
+        # 優先度順でキーワードを検索
+        for keyword in keyword_priority:
+            if keyword.lower() in title_lower:
+                return keyword
+        
+        # 見つからない場合はタイトルから推測
+        if "読書" in title or "本" in title:
+            return "読書苦手"
+        elif "聞く" in title or "聴く" in title:
+            return "聴く読書"
+        elif "音声" in title or "オーディオ" in title:
+            return "オーディオブック"
+        else:
+            return "記事"  # デフォルト
+
     def _extract_tags_from_content(self, title: str, description: str, content: str) -> List[str]:
-        """記事内容からタグを自動抽出（v3.0品質テンプレート対応）"""
+        """
+        絶対的見本テンプレートSEO仕様に基づくタグ抽出
+        
+        ルール:
+        - メインキーワード1つ + サブキーワード2-3つ + 関連キーワード5-7つ
+        - カンマ区切りで設定
+        - ひらがな・カタカナ・漢字のバリエーションを含める
+        - 検索ボリュームのあるキーワードを優先
+        """
         tags = []
         
-        # タグ抽出ルール：メイン・サービス・機能・カテゴリ・特典キーワードをバランス良く
+        # タグ抽出ルール：メイン・サブ・関連キーワードをバランス良く構成
         keyword_map = {
             # メインキーワード（検索ボリューム重視）
             "読書苦手": ["読書苦手", "本が読めない", "読書継続"],
@@ -297,6 +446,12 @@ class CompleteAutomationWorkflowSystem:
             print("   記事作成時は以下を必ず参照してください：")
             print("   ファイル: /ドキュメント/テンプレート見本/読書苦手_Audible_聴く読書_完成記事_絶対的見本テンプレート.md")
             print("   この見本記事と同等以上の品質を確保してください")
+            
+            # 収益化知識ベース蓄積の確認メッセージ  
+            print("\n💰 【収益化知識ベース】セッション記録蓄積")
+            print("   本セッション情報は収益化コンテンツ用知識ベースとして蓄積されます：")
+            print(f"   保存先: {self.knowledge_base_path}")
+            print("   用途: 将来の書籍・有料ノート販売用素材データベース")
             
             # Phase 2: ポートフォリオ更新
             print("\n🔄 Phase 2: ポートフォリオarticles.json更新")
