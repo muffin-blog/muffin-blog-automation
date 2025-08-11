@@ -1,31 +1,26 @@
-# 🤖 ブログ自動化プロジェクト
+# 🤖 ブログ自動化プロジェクト（Phase4統合版）
 
-WordPressブログの記事生成・画像作成・投稿を自動化するPythonシステム
+WordPress記事の完全自動化システム - URL検出からポートフォリオ反映まで全自動 + 101点満点品質保証
 
-## 📁 プロジェクト構造
+## 📁 プロジェクト構造（Phase4統合版）
 
 ```
 ブログ自動化/
 ├── 📄 README.md                    - このファイル
-├── 🔧 core/                        - コアシステム
-│   ├── wordpress_api.py             - WordPress API連携基盤
-│   ├── blog_article_generator.py    - 記事生成システム
-│   ├── complete_blog_automation.py  - メイン自動化機能
-│   └── category_manager.py          - カテゴリ管理機能
-├── 🖼️ image_generation/             - 画像生成システム
-│   ├── canva_image_generator.py     - Canva API連携
-│   ├── unsplash_image_generator.py  - Unsplash API連携
-│   └── canva_working_token.txt      - Canva認証トークン
-├── ⚙️ scripts/                     - ユーティリティスクリプト
-│   ├── get_blog_categories.py       - ブログカテゴリ取得
-│   ├── publish_draft.py             - 下書き記事公開
-│   └── fix_test_post_status.py      - テスト投稿修正
-└── 📋 docs/                        - ドキュメント
-    ├── setup_guide.md               - セットアップガイド
-    ├── unlimi_design_spec.md        - デザイン仕様書（参考）
-    ├── Claude主導ブログ自動化企画書.md - プロジェクト企画書
-    ├── ファイル整理計画.md            - ファイル整理記録
-    └── 整理完了報告.md              - 整理完了報告
+├── 🔧 システム実行ファイル/
+│   └── コア/                        - Phase4統合システム
+│       ├── 継続的品質管理統合システム.py - 101点満点品質保証
+│       ├── 投稿前確認システム.py      - SEO検証システム
+│       ├── システム監視・品質管理.py   - リアルタイム監視
+│       ├── 完全自動化ワークフローシステム.py - URL検出自動実行
+│       ├── WordPress連携API.py       - WordPress API連携
+│       └── マフィンブログワークフローシステム.py
+├── 📁 システム監視データ/           - 品質・エラー・パフォーマンスログ
+├── 📁 WordPress投稿下書き/        - 記事下書き・記事データ保存
+├── 📁 NotebookLM資料/            - 記事作成用資料
+├── 📁 バックアップ・復元/         - システムバックアップ
+│   └── 廃止システム/                - 画像生成システム（廃止済み）
+└── 📄 絶対的見本テンプレート.md    - 記事品質基準
 ```
 
 ## 🚀 クイックスタート
@@ -39,22 +34,25 @@ pip install requests openai
 cp docs/setup_guide.md ./
 ```
 
-### 2. 基本的な使用方法
+### 2. 基本的な使用方法（Phase4統合版）
 
-**記事生成 + 投稿:**
+**完全自動化ワークフロー:**
 ```python
-from core.complete_blog_automation import BlogAutomator
+from システム実行ファイル.コア.完全自動化ワークフローシステム import CompleteAutomationWorkflowSystem
 
-automator = BlogAutomator()
-automator.create_and_publish_article("Audibleのおすすめ使い方")
+system = CompleteAutomationWorkflowSystem()
+# WordPress URLを検出して自動実行
+result = system.execute_complete_automation("https://muffin-blog.com/article-url/")
 ```
 
-**画像生成:**
+**101点満点品質保証:**
 ```python
-from image_generation.canva_image_generator import CanvaImageGenerator
+from システム実行ファイル.コア.継続的品質管理統合システム import 継続的品質管理統合システム
+from システム実行ファイル.コア.投稿前確認システム import 投稿前確認システム
 
-generator = CanvaImageGenerator()
-image_url = generator.create_blog_image("読書術", "効率的な読書方法")
+# 品質チェック実行
+quality_system = 継続的品質管理統合システム()
+validator = 投稿前確認システム()
 ```
 
 **カテゴリ管理:**
