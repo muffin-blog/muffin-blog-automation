@@ -1,0 +1,22 @@
+# 認証情報
+image_generation/canva_working_token.txt
+**/token.txt
+**/*_token.txt
+config.json
+
+# バックアップフォルダ
+整理前バックアップ/
+
+# システムファイル
+.DS_Store
+__pycache__/
+*.pyc
+
+# 一時ファイル
+*.tmp
+*.log
+
+# 開発環境
+.env
+.venv/
+venv/

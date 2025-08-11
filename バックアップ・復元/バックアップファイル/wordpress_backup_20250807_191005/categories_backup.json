@@ -1,0 +1,442 @@
+[
+  {
+    "id": 75,
+    "count": 5,
+    "description": "",
+    "link": "https://muffin-blog.com/category/audible/",
+    "name": "Audible",
+    "slug": "audible",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/75",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=75"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 102,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/audible%e3%83%bb%e8%aa%ad%e6%9b%b8/",
+    "name": "Audible・読書",
+    "slug": "audible%e3%83%bb%e8%aa%ad%e6%9b%b8",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/102",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=102"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 92,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/audible%e6%b4%bb%e7%94%a8/",
+    "name": "Audible活用",
+    "slug": "audible%e6%b4%bb%e7%94%a8",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/92",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=92"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/uncategorized/",
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/1",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 113,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/%e3%82%aa%e3%83%bc%e3%83%87%e3%82%a3%e3%82%aa%e3%83%96%e3%83%83%e3%82%af/",
+    "name": "オーディオブック",
+    "slug": "%e3%82%aa%e3%83%bc%e3%83%87%e3%82%a3%e3%82%aa%e3%83%96%e3%83%83%e3%82%af",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/113",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=113"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "count": 1,
+    "description": "",
+    "link": "https://muffin-blog.com/category/%e3%81%9d%e3%81%ae%e4%bb%96/",
+    "name": "その他",
+    "slug": "%e3%81%9d%e3%81%ae%e4%bb%96",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/85",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=85"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 88,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/%e3%83%86%e3%82%b9%e3%83%88/",
+    "name": "テスト",
+    "slug": "%e3%83%86%e3%82%b9%e3%83%88",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/88",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=88"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 120,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc%e3%83%bb%e6%af%94%e8%bc%83/",
+    "name": "レビュー・比較",
+    "slug": "%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc%e3%83%bb%e6%af%94%e8%bc%83",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/120",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=120"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 98,
+    "count": 0,
+    "description": "",
+    "link": "https://muffin-blog.com/category/%e5%ad%a6%e7%bf%92%e3%83%bb%e8%87%aa%e5%b7%b1%e5%95%93%e7%99%ba/",
+    "name": "学習・自己啓発",
+    "slug": "%e5%ad%a6%e7%bf%92%e3%83%bb%e8%87%aa%e5%b7%b1%e5%95%93%e7%99%ba",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories/98",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://muffin-blog.com/wp-json/wp/v2/posts?categories=98"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
