@@ -265,7 +265,7 @@ async function loadProfileData() {
 async function loadArticlesData() {
     try {
         console.log('🚀 記事データ読み込み開始');
-        const response = await fetch('./content/articles/articles.json');
+        const response = await fetch('/content/articles/articles.json');
         console.log('📡 Fetch response:', response.status, response.statusText);
         
         if (!response.ok) throw new Error(`記事データの読み込みに失敗: ${response.status}`);
