@@ -1,0 +1,21 @@
+[
+  {
+    "timestamp": "2025-08-11T15:20:56.593325",
+    "error_type": "missing_required_fields",
+    "error_message": "必須項目不足: category, main_keyword",
+    "context": {
+      "missing_fields": [
+        "category",
+        "main_keyword"
+      ],
+      "provided_fields": [
+        "title",
+        "meta_description",
+        "slug",
+        "tags",
+        "content"
+      ]
+    },
+    "severity": "info"
+  }
+]

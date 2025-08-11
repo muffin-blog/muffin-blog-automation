@@ -1,0 +1,263 @@
+[
+  {
+    "timestamp": "2025-08-11T15:02:28.509653",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:02:28.913429",
+    "operation": "health_check",
+    "duration": 1754892148.913425,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:20:56.176006",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:20:56.592393",
+    "operation": "health_check",
+    "duration": 1754893256.5923898,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:09.066390",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:09.497211",
+    "operation": "health_check",
+    "duration": 1754893269.497173,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:21.258008",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:21.681353",
+    "operation": "health_check",
+    "duration": 1754893281.681348,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:32.589360",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:32.986153",
+    "operation": "health_check",
+    "duration": 1754893292.986151,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:42.435236",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:42.829055",
+    "operation": "health_check",
+    "duration": 1754893302.829045,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:57.970688",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:21:58.366168",
+    "operation": "health_check",
+    "duration": 1754893318.366165,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T15:22:08.200036",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T15:22:08.600398",
+    "operation": "health_check",
+    "duration": 1754893328.600396,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  },
+  {
+    "timestamp": "2025-08-11T16:21:21.005607",
+    "operation": "category_load",
+    "duration": 0.1,
+    "success": true,
+    "details": {
+      "category_count": 4,
+      "categories": [
+        "Audible",
+        "Audiobook.jp",
+        "Uncategorized",
+        "その他"
+      ]
+    },
+    "performance_grade": "A"
+  },
+  {
+    "timestamp": "2025-08-11T16:21:21.436878",
+    "operation": "health_check",
+    "duration": 1754896881.436874,
+    "success": true,
+    "details": {
+      "wordpress_api": true,
+      "categories_data": true,
+      "filesystem": true,
+      "overall": true
+    },
+    "performance_grade": "D"
+  }
+]
