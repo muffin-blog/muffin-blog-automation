@@ -19,8 +19,10 @@
       "WebFetch(domain:soarlog2.net)",
       "Bash(python:*)",
       "Bash(find:*)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(sed:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }
