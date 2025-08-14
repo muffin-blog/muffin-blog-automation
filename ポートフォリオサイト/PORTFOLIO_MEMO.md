@@ -98,7 +98,7 @@
 - セキュリティ機能追加（ハニーポット、レート制限）
 
 ## 連絡先設定
-メールアドレス: 0527muffin1203@gmail.com
+メールアドレス: ${CONTACT_EMAIL} # .envファイルから取得
 
 ## システム連携情報
 - **統合管理システム:** `/Users/satoumasamitsu/Desktop/osigoto/統合管理システム/`

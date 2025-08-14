@@ -20,7 +20,8 @@
       "Bash(python:*)",
       "Bash(find:*)",
       "Bash(true)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "WebSearch"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
