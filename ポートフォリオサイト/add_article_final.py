@@ -48,7 +48,7 @@ def get_article_data(url):
             "date": datetime.now().strftime('%Y-%m-%d'),
             "tags": tags,
             "client": "Muffin Blog",
-            "thumbnail": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&auto=format"
+            "thumbnail": None  # 画像は後でportfolio_image_managerが設定
         }
         
     except Exception as e:
@@ -216,7 +216,15 @@ def main():
         print("❌ 処理を中断します")
         return
     
-    # 3. デプロイ
+    # 3. 画像自動設定
+    print("🖼️ 画像を自動設定中...")
+    try:
+        subprocess.run(['node', 'portfolio_image_manager.js', 'process-article', url], check=True)
+        print("✅ 画像設定完了")
+    except subprocess.CalledProcessError:
+        print("⚠️ 画像設定に失敗しましたが、記事は追加されました")
+    
+    # 4. デプロイ
     if not git_deploy():
         print("❌ 処理を中断します")
         return
