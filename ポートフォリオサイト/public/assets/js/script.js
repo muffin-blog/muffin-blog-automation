@@ -6,7 +6,7 @@ let blogArticles = [];
 
 async function loadArticlesData() {
     try {
-        const response = await fetch('./content/articles/articles.json');
+        const response = await fetch('/content/articles/articles.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
