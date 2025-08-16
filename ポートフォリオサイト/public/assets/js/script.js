@@ -213,12 +213,12 @@ async function loadArticlesData() {
         });
         
         // 後方互換性のため
-        featuredArticles = data.featured || [];
-        articlesData = [...seoArticles, ...blogArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+        let featuredArticles = data.featured || [];
+        let articlesData = [...seoArticles, ...blogArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
         
         // 全記事からタグを収集
         [...seoArticles, ...blogArticles].forEach(article => {
-            if (article.tags) {
+            if (article.tags && Array.isArray(article.tags)) {
                 article.tags.forEach(tag => allTags.add(tag));
             }
         });
