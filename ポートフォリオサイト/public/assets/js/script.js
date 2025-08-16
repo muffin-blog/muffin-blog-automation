@@ -4,67 +4,50 @@ console.log('🔍 デバッグ: スクリプト実行中');
 // ===== データ管理 =====
 let seoArticles = [];
 let blogArticles = [];
+let profileData = {};
+let faqData = [];
 
-async function loadArticlesData() {
+async function loadAllData() {
     try {
-        const response = await fetch('./content/articles/articles.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // 記事データ読み込み
+        const articlesResponse = await fetch('./content/articles/articles.json');
+        if (!articlesResponse.ok) {
+            throw new Error(`Articles HTTP error! status: ${articlesResponse.status}`);
         }
+        const articlesData = await articlesResponse.json();
+        seoArticles = articlesData.seoArticles || [];
+        blogArticles = articlesData.blogArticles || [];
         
-        const data = await response.json();
-        seoArticles = data.seoArticles || [];
-        blogArticles = data.blogArticles || [];
+        // プロフィールデータ読み込み
+        const profileResponse = await fetch('./content/profile.json');
+        if (!profileResponse.ok) {
+            throw new Error(`Profile HTTP error! status: ${profileResponse.status}`);
+        }
+        profileData = await profileResponse.json();
         
-        console.log('✅ 記事データ読み込み完了:', {
+        console.log('✅ 全データ読み込み完了:', {
             seoArticles: seoArticles.length,
-            blogArticles: blogArticles.length
+            blogArticles: blogArticles.length,
+            profile: profileData.name
         });
         
         return true;
     } catch (error) {
-        console.error('❌ 記事データ読み込みエラー:', error);
+        console.error('❌ データ読み込みエラー:', error);
         return false;
     }
 }
 
-const profileData = {
-    "name": "マフィン",
-    "title": "AI×SEO Writer",
-    "subtitle": "Content Creator",
-    "bio": "読者一人ひとりの未来を豊かにする、価値あるコンテンツ作りを追求しています。適応障害をきっかけに副業から始めたライティングを本格展開。現在はAIツールを駆使した効率的な記事制作で、クライアントの成果向上と読者の課題解決を両立。執筆からディレクションまで、幅広くサポートいたします。",
-    "services": [
-        {
-            "title": "SEO記事執筆",
-            "description": "検索エンジンに最適化された高品質な記事を作成",
-            "icon": "🎯"
-        },
-        {
-            "title": "AIツール活用", 
-            "description": "最新のAIツールを駆使した効率的なコンテンツ制作",
-            "icon": "🤖"
-        },
-        {
-            "title": "ブログ運営支援",
-            "description": "継続的なブログ運営とコンテンツ戦略の提案", 
-            "icon": "📈"
-        },
-        {
-            "title": "ディレクション",
-            "description": "コンテンツ制作チームの統括と品質管理",
-            "icon": "💡"
-        }
-    ]
-};
+// profileDataは上でletで宣言済み、JSONから読み込む
 
 // ===== 初期化 =====
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 DOMContentLoaded発火');
     
     try {
-        console.log('📡 記事データ読み込み開始');
-        const dataLoaded = await loadArticlesData();
-        console.log('📊 記事データ読み込み結果:', dataLoaded);
+        console.log('📡 全データ読み込み開始');
+        const dataLoaded = await loadAllData();
+        console.log('📊 データ読み込み結果:', dataLoaded);
         
         if (!dataLoaded) {
             console.warn('⚠️ 記事データ読み込み失敗、空配列で継続');
@@ -181,20 +164,8 @@ function renderFAQ() {
     const container = document.querySelector('.faq-container');
     if (!container) return;
     
-    const faqData = [
-        {
-            question: "記事執筆の料金はどのくらいですか？",
-            answer: "【初回お試し価格】初めてのお客様には文字単価1円でお受けいたします！通常価格はSEO記事3〜5円、専門性の高い記事5〜8円程度です。"
-        },
-        {
-            question: "納期はどのくらいですか？",
-            answer: "通常、3000〜5000文字の記事で1週間程度いただいております。お急ぎの場合はご相談ください。"
-        },
-        {
-            question: "どのような分野の記事が得意ですか？",
-            answer: "テクノロジー、マーケティング、ビジネス、健康・美容、金融など幅広い分野に対応しています。AIツールを活用した効率的な調査により、専門分野以外でも質の高い記事を執筆できます。"
-        }
-    ];
+    // profileData.faqからデータを取得
+    const faqData = profileData.faq || [];
     
     container.innerHTML = '';
     
@@ -220,10 +191,14 @@ function renderContact() {
     const container = document.querySelector('.contact-container');
     if (!container) return;
     
+    const contactInfo = profileData.contact || {};
+    const email = contactInfo.email || '0527muffin1203@gmail.com';
+    const message = contactInfo.message || 'お仕事のご依頼・お見積もりについては下記フォームよりお気軽にお問い合わせください。';
+    
     container.innerHTML = `
         <div class="contact-intro">
-            <p>お仕事のご依頼・お見積もりについては下記フォームよりお気軽にお問い合わせください。</p>
-            <p>フォームが送信できない場合は直接メール（<a href="mailto:0527muffin1203@gmail.com">0527muffin1203@gmail.com</a>）でご連絡ください。</p>
+            <p>${message}</p>
+            <p>フォームが送信できない場合は直接メール（<a href="mailto:${email}">${email}</a>）でご連絡ください。</p>
         </div>
         
         <form class="contact-form" onsubmit="handleContactForm(event)">
