@@ -9,7 +9,10 @@ let faqData = [];
 
 async function loadAllData() {
     try {
+        console.log('🔄 データ読み込み開始...');
+        
         // 記事データ読み込み
+        console.log('📚 articles.json読み込み中...');
         const articlesResponse = await fetch('./content/articles/articles.json');
         if (!articlesResponse.ok) {
             throw new Error(`Articles HTTP error! status: ${articlesResponse.status}`);
@@ -17,13 +20,16 @@ async function loadAllData() {
         const articlesData = await articlesResponse.json();
         seoArticles = articlesData.seoArticles || [];
         blogArticles = articlesData.blogArticles || [];
+        console.log('✅ 記事データ取得:', seoArticles.length, 'SEO,', blogArticles.length, 'Blog');
         
         // プロフィールデータ読み込み
+        console.log('👤 profile.json読み込み中...');
         const profileResponse = await fetch('./content/profile.json');
         if (!profileResponse.ok) {
             throw new Error(`Profile HTTP error! status: ${profileResponse.status}`);
         }
         profileData = await profileResponse.json();
+        console.log('✅ プロフィールデータ取得:', profileData.name);
         
         console.log('✅ 全データ読み込み完了:', {
             seoArticles: seoArticles.length,
