@@ -34,8 +34,8 @@ def get_article_data(url):
         if not description:
             description = extract_description_from_html(html)
         
-        # タグ生成
-        tags = generate_tags(title, category)
+        # タグ生成（推測なし、URLから自動取得）
+        tags = generate_tags_from_url(url, title)
         
         print(f"✅ タイトル: {title}")
         print(f"✅ 説明: {description[:50]}...")
@@ -115,29 +115,72 @@ def extract_description_from_html(html):
         pass
     return ""
 
-def generate_tags(title, category):
-    """タイトルとカテゴリからタグを生成"""
-    tags = []
-    
-    # カテゴリを追加
-    if category:
-        tags.append(category)
-    
-    # キーワード抽出
-    keywords = {
-        'Audible': ['Audible', 'オーディブル', 'オーディオブック'],
-        '読書': ['読書', '読書効果'],
-        '集中力': ['集中力向上'],
-        '二刀流': ['二刀流読書'],
-        '効果': ['読書効果'],
-    }
-    
-    for key, tag_list in keywords.items():
-        if key in title:
-            tags.extend(tag_list)
-    
-    # 重複削除・上限設定
-    return list(dict.fromkeys(tags))[:6]
+def generate_tags_from_url(url, title=""):
+    """URLとタイトルから自動でタグを生成（推測なし）"""
+    try:
+        # HTMLを取得
+        result = subprocess.run(['curl', '-s', '-L', url], capture_output=True, text=True)
+        html = result.stdout
+        
+        if not html:
+            return []
+        
+        # script/styleタグを除去
+        content = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL | re.IGNORECASE)
+        content = re.sub(r'<style[^>]*>.*?</style>', '', content, flags=re.DOTALL | re.IGNORECASE)
+        content = re.sub(r'<[^>]+>', ' ', content)
+        content = re.sub(r'\s+', ' ', content)
+        
+        # 除外キーワード（技術的なものを徹底排除）
+        exclude_words = {
+            'var', 'function', 'style', 'margin', 'border', 'has', 'preset', 
+            'important', 'text', 'ndash', 'について', 'という', 'ですが', 
+            'ところ', 'ことが', 'される', 'している', 'します', 'ました',
+            'document', 'window', 'element', 'div', 'span', 'class', 'id',
+            'background', 'color', 'width', 'height', 'padding', 'display',
+            'position', 'absolute', 'relative', 'fixed', 'flex', 'grid',
+            'const', 'let', 'return', 'false', 'true', 'null', 'undefined',
+            'onclick', 'onload', 'jquery', 'script', 'css', 'html'
+        }
+        
+        # 意味のあるキーワードのみ抽出
+        tags = set()
+        
+        # タイトルからキーワード抽出
+        if title:
+            title_words = re.findall(r'[ァ-ヶー]{2,}|[あ-ん]{2,}|[一-龯]{2,}|[A-Za-z]{3,}', title)
+            for word in title_words:
+                if word.lower() not in exclude_words and len(word) >= 2:
+                    tags.add(word)
+        
+        # コンテンツから重要キーワード抽出
+        words = re.findall(r'[ァ-ヶー]{2,}|[あ-ん]{2,}|[一-龯]{2,}|[A-Za-z]{3,}', content)
+        word_count = {}
+        
+        for word in words:
+            if word.lower() not in exclude_words and len(word) >= 2:
+                word_count[word] = word_count.get(word, 0) + 1
+        
+        # 5回以上出現する重要なキーワードのみ
+        for word, count in word_count.items():
+            if count >= 5:
+                tags.add(word)
+        
+        # カテゴリ分類
+        if 'audible' in url.lower() or 'audiobook' in url.lower():
+            tags.add('オーディオブック')
+        if 'health' in url.lower() or '健康' in content:
+            tags.add('健康')
+        if 'diet' in url.lower() or 'ダイエット' in content:
+            tags.add('ダイエット')
+        if 'sleep' in url.lower() or '睡眠' in content:
+            tags.add('睡眠')
+            
+        return list(tags)[:6]
+        
+    except Exception as e:
+        print(f"❌ タグ生成エラー: {e}")
+        return []
 
 def update_articles_json(article_data):
     """articles.jsonを更新"""
