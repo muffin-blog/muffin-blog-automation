@@ -178,11 +178,37 @@ async function loadArticlesData() {
     try {
         console.log('🚀 記事データ読み込み開始');
         
-        // 正しいパスで記事データを取得
-        const response = await fetch('./content/articles/articles.json');
+        // Vercel環境を考慮したパス設定
+        const paths = [
+            './content/articles/articles.json',
+            '/content/articles/articles.json',
+            'content/articles/articles.json'
+        ];
         
-        if (!response.ok) {
-            throw new Error(`記事データ読み込みに失敗: ${response.status}`);
+        let response = null;
+        let lastError = null;
+        
+        for (const path of paths) {
+            try {
+                console.log(`📡 試行中: ${path}`);
+                response = await fetch(path);
+                if (response.ok) {
+                    console.log(`✅ 成功: ${path}`);
+                    break;
+                }
+                lastError = `${path}: ${response.status}`;
+            } catch (e) {
+                lastError = `${path}: ${e.message}`;
+                console.warn(`❌ 失敗: ${lastError}`);
+                continue;
+            }
+        }
+        
+        if (!response || !response.ok) {
+            // エラー時は静的データを使用
+            console.warn('⚠️ JSONファイル読み込み失敗 - 静的データを使用');
+            useStaticData();
+            return;
         }
         
         const data = await response.json();
@@ -215,8 +241,53 @@ async function loadArticlesData() {
         });
     } catch (error) {
         console.error('❌ 記事データエラー:', error);
-        throw error;
+        // エラー時は静的データを使用
+        useStaticData();
     }
+}
+
+// ===== 静的データのフォールバック関数 =====
+function useStaticData() {
+    console.log('📦 静的データを使用');
+    
+    // Audible記事を含む最小限のデータ
+    seoArticles = [
+        {
+            "title": "夏の睡眠適温は26°C！朝までぐっすり眠れる快眠テクニック",
+            "url": "https://minerva-sleep.jp/blogs/worries/20250829",
+            "description": "夏の夜、暑さで寝苦しくて夜中に何度も目が覚めてしまう方向けの快眠テクニック。",
+            "date": "2025-07-31",
+            "tags": ["睡眠", "快眠", "エアコン", "夏"],
+            "client": "Minerva Sleep",
+            "thumbnail": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&h=200&fit=crop&auto=format"
+        }
+    ];
+    
+    blogArticles = [
+        {
+            "title": "Audible二刀流読書で集中力・読解力向上！効果と始め方",
+            "url": "https://muffin-blog.com/audible-concentration-reading-improvement/",
+            "description": "Audible二刀流読書で集中力・読解力が科学的に向上！音声と文字を同時活用する効果的な読書法の実践方法とコツを詳しく解説。",
+            "date": "2025-08-16",
+            "tags": ["ブログ", "オーディオブック", "オーディブル", "読書効果", "集中力向上"],
+            "client": "Muffin Blog",
+            "thumbnail": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&auto=format"
+        },
+        {
+            "title": "【オーディオブック】単品購入ならaudiobook.jpがお得？比較とセールまとめ",
+            "url": "https://muffin-blog.com/audiobook-jp-tanpin-guide/",
+            "description": "audiobook.jp単品購入が最安値！2025年8月開催中の50%OFFセール情報とAudibleとの価格比較。",
+            "date": "2025-08-11",
+            "tags": ["ブログ", "オーディオブック", "放題", "セール"],
+            "client": "Muffin Blog",
+            "thumbnail": "./assets/images/default-blog-thumbnail.jpg"
+        }
+    ];
+    
+    console.log('✅ 静的データ設定完了', {
+        seoArticles: seoArticles.length,
+        blogArticles: blogArticles.length
+    });
 }
 
 
