@@ -177,27 +177,12 @@ async function loadProfileData() {
 async function loadArticlesData() {
     try {
         console.log('🚀 記事データ読み込み開始');
-        let response;
         
-        // 複数のパスを試行
-        const paths = ['/content/articles/articles.json', './content/articles/articles.json', 'content/articles/articles.json'];
+        // 正しいパスで記事データを取得
+        const response = await fetch('./content/articles/articles.json');
         
-        for (const path of paths) {
-            try {
-                console.log(`📡 試行中: ${path}`);
-                response = await fetch(path);
-                if (response.ok) {
-                    console.log(`✅ 成功: ${path} (${response.status})`);
-                    break;
-                }
-            } catch (e) {
-                console.log(`❌ 失敗: ${path} - ${e.message}`);
-                continue;
-            }
-        }
-        
-        if (!response || !response.ok) {
-            throw new Error('全てのパスで記事データ読み込みに失敗');
+        if (!response.ok) {
+            throw new Error(`記事データ読み込みに失敗: ${response.status}`);
         }
         
         const data = await response.json();
