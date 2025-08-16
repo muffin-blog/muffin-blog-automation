@@ -388,7 +388,7 @@ function createSeoArticleCard(article, index) {
             </div>
             <p class="article-description">${article.description || ''}</p>
             <div class="article-tags">
-                ${article.tags ? article.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
+                ${(article.tags && Array.isArray(article.tags)) ? article.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
             </div>
             <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="read-more">
                 記事を読む
@@ -418,7 +418,7 @@ function createBlogArticleCard(article, index) {
             </div>
             <p class="article-description">${article.description || ''}</p>
             <div class="article-tags">
-                ${article.tags ? article.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
+                ${(article.tags && Array.isArray(article.tags)) ? article.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
             </div>
             <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="read-more">
                 記事を読む
