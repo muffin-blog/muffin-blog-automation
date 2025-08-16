@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "buildCommand": "cd ポートフォリオサイト && npm run build",
-  "outputDirectory": "ポートフォリオサイト/public",
-  "installCommand": "cd ポートフォリオサイト && npm install"
-}
