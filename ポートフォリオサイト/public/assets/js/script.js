@@ -26,9 +26,26 @@ let formDisplayTime = Date.now();
 
 // ===== 初期化 =====
 document.addEventListener('DOMContentLoaded', function() {
-    initializeWebsite();
-    addScrollEffects();
-    addSmoothScrolling();
+    console.log('🚀 DOMContentLoaded イベント発火');
+    console.log('📍 現在のURL:', window.location.href);
+    console.log('📍 ベースパス:', window.location.origin);
+    
+    try {
+        initializeWebsite();
+        addScrollEffects();
+        addSmoothScrolling();
+    } catch (error) {
+        console.error('🚨 初期化でエラー:', error);
+        // エラー時は静的データを強制使用
+        useStaticData();
+        hideLoading();
+        renderProfile();
+        renderServices();
+        renderSeoArticles();
+        renderBlogArticles();
+        renderFAQ();
+        renderContact();
+    }
 });
 
 // ===== メイン初期化関数 =====
