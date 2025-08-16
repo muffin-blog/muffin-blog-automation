@@ -21,7 +21,8 @@
       "Bash(find:*)",
       "Bash(true)",
       "Bash(sed:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git remote get-url:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

@@ -140,104 +140,16 @@ async function initializeWebsite() {
             ]
         };
 
-        // SEO記事（外部サイト向け執筆）とブログ記事（自分のブログ）に分類
-        let seoArticlesRaw = [
-            {
-                "title": "UQモバイルは海外でも使える！利用方法や料金について徹底解説",
-                "url": "https://my-best.com/articles/550",
-                "description": "モバイル・通信サービス記事",
-                "metaDescription": "UQモバイルを海外で使う方法を詳しく解説。国際ローミング料金、設定方法、注意点まで格安SIMユーザー必見の完全ガイドです。",
-                "date": "2024-07-15",
-                "tags": ["UQモバイル", "海外利用", "国際ローミング", "格安SIM", "通信"],
-                "client": "my-best.com",
-                "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "夏の睡眠適温は26°C！朝までぐっすり眠れる快眠テクニック",
-                "url": "https://minerva-sleep.jp/blogs/worries/20250829",
-                "description": "夏の快適な睡眠環境を作るための実践的なアドバイス。室温26-27℃、湿度50-60%の重要性とエアコンの効果的な使用方法を解説",
-                "metaDescription": "夏の夜も快適に眠るための室温・湿度管理法を専門家が解説。エアコン設定のコツや寝具選びまで、暑い夜の睡眠改善テクニックをご紹介。",
-                "date": "2025-07-31",
-                "tags": ["夏", "睡眠", "快眠", "エアコン", "室温", "健康"],
-                "client": "Minerva Sleep",
-                "thumbnail": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "朝までぐっすり！失敗しない枕の選び方完全ガイド【首・肩こり解消】",
-                "url": "https://minerva-sleep.jp/blogs/pillow/20250729",
-                "description": "首・肩こり解消のための枕選びの完全ガイド。高さ・サイズ・素材・形状・硬さの5つのポイントを詳しく解説",
-                "metaDescription": "首・肩こりに悩む方必見！枕の正しい選び方を5つのポイントで解説。高さ調整のコツから素材別の特徴まで、快眠のための完全ガイド。",
-                "date": "2025-07-29",
-                "tags": ["枕", "睡眠", "首こり", "肩こり", "寝具", "健康"],
-                "client": "Minerva Sleep",
-                "thumbnail": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "失敗しないマットレスの選び方｜体型・悩み別に解説",
-                "url": "https://minerva-sleep.jp/blogs/mattress/20250726",
-                "description": "Minerva Sleepコラム記事",
-                "metaDescription": "あなたの体型と睡眠の悩みに最適なマットレスの選び方を専門家が解説。硬さ・素材・サイズの選択基準から、腰痛・肩こり対策まで詳しくご紹介。",
-                "date": "2025-07-26",
-                "tags": ["マットレス", "睡眠", "健康", "寝具", "体型別"],
-                "client": "Minerva Sleep",
-                "thumbnail": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "ダイエット中の停滞期を抜ける前兆サインと早く終わらせる7つのコツ",
-                "url": "https://baumclinic.jp/column/stagnationperiod-getout/",
-                "description": "ダイエット・美容コラム記事",
-                "metaDescription": "ダイエット停滞期の前兆サインを見逃さず、効果的に抜け出す7つの方法を医師が解説。体重が減らない理由と対策で理想の体型を目指しましょう。",
-                "date": "2024-07-01",
-                "tags": ["ダイエット", "停滞期", "健康", "美容", "体重管理"],
-                "client": "バウムクリニック",
-                "thumbnail": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "正しい食事制限で健康的なダイエット！リバウンドを防ぐ食事法",
-                "url": "https://baumclinic.jp/column/diet-dietaryrestrictions/",
-                "description": "ダイエット・美容コラム記事",
-                "metaDescription": "リバウンドしない健康的なダイエットのための正しい食事制限方法を管理栄養士が解説。極端な食事制限を禁物にし、継続可能な食事法で理想の体型へ。",
-                "date": "2024-06-15",
-                "tags": ["ダイエット", "食事制限", "健康", "美容", "リバウンド防止", "栄養"],
-                "client": "バウムクリニック",
-                "thumbnail": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "ちょっと食べただけですぐ太るあなたに役立つ７つの理由と４つの対策",
-                "url": "https://baumclinic.jp/column/gain-weight-quickly/",
-                "description": "ダイエット・美容コラム記事",
-                "metaDescription": "少し食べただけですぐ体重が増えてしまう原因7つと対策方法を医師が詳しく解説。代謝改善から食事のタイミングまで、太りやすい体質改善の秘訣。",
-                "date": "2024-06-02",
-                "tags": ["ダイエット", "体重管理", "健康", "美容", "代謝", "食事"],
-                "client": "バウムクリニック",
-                "thumbnail": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop&auto=format"
-            },
-            {
-                "title": "空腹のピークを過ぎると食欲がおさまるメカニズムと体への７つの影響",
-                "url": "https://baumclinic.jp/column/hunger-toopeak/",
-                "description": "ダイエット・美容コラム記事",
-                "metaDescription": "空腹のピークを過ぎると食欲がおさまるメカニズムと、体に与える7つの影響を医学的観点から解説。空腹時の正しい対処法と健康への影響を理解しましょう。",
-                "date": "2024-05-20",
-                "tags": ["ダイエット", "空腹", "食欲", "健康"],
-                "client": "バウムクリニック",
-                "thumbnail": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=300&h=200&fit=crop&auto=format"
-            }
-        ];
+        // 全てarticles.jsonから読み込み（ハードコーディング完全削除）
 
         // 記事データがJSONから読み込み済みの場合のみレンダリング
         renderProfile();
         renderServices();
-        renderSeoArticles();
+        if (seoArticles && seoArticles.length > 0) {
+            renderSeoArticles();
+        }
         if (blogArticles && blogArticles.length > 0) {
             renderBlogArticles();
-        } else {
-            console.error('blogArticlesが読み込まれていません');
-            // フォールバック処理
-            setTimeout(() => {
-                if (blogArticles && blogArticles.length > 0) {
-                    renderBlogArticles();
-                }
-            }, 1000);
         }
         renderFAQ();
         renderContact();
@@ -474,7 +386,7 @@ function createSeoArticleCard(article, index) {
             <div class="article-meta">
                 <span class="article-date">${formattedDate}</span>
             </div>
-            ${article.metaDescription ? `<p class="article-meta-description">${article.metaDescription}</p>` : `<p>${article.description}</p>`}
+            <p class="article-description">${article.description || ''}</p>
             <div class="article-tags">
                 ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
@@ -504,7 +416,7 @@ function createBlogArticleCard(article, index) {
             <div class="article-meta">
                 <span class="article-date">${formattedDate}</span>
             </div>
-            ${article.metaDescription ? `<p class="article-meta-description">${article.metaDescription}</p>` : `<p>${article.description}</p>`}
+            <p class="article-description">${article.description || ''}</p>
             <div class="article-tags">
                 ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
