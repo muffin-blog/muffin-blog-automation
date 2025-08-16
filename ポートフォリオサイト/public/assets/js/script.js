@@ -1,4 +1,5 @@
 console.log('🚀 JavaScript読み込み開始');
+console.log('🔍 デバッグ: スクリプト実行中');
 
 // ===== データ管理 =====
 let seoArticles = [];
@@ -61,11 +62,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 DOMContentLoaded発火');
     
     try {
+        console.log('📡 記事データ読み込み開始');
         const dataLoaded = await loadArticlesData();
+        console.log('📊 記事データ読み込み結果:', dataLoaded);
+        
         if (!dataLoaded) {
             console.warn('⚠️ 記事データ読み込み失敗、空配列で継続');
         }
         
+        console.log('🎨 描画処理開始');
         hideLoading();
         renderProfile();
         renderServices();
@@ -76,6 +81,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log('✅ 全ての描画完了');
     } catch (error) {
         console.error('❌ エラー:', error);
+        hideLoading(); // エラー時でもローディング表示を消す
     }
 });
 
