@@ -238,29 +238,118 @@ function renderContact() {
     const message = contactInfo.message || 'お仕事のご依頼・お見積もりについては下記フォームよりお気軽にお問い合わせください。';
     
     container.innerHTML = `
-        <div class="contact-intro">
-            <p>${message}</p>
-            <p>フォームが送信できない場合は直接メール（<a href="mailto:${email}">${email}</a>）でご連絡ください。</p>
+        <div class="contact-progress">
+            <div class="progress-step active">
+                <div class="step-number">入力</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-number">確認</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-number">完了</div>
+            </div>
         </div>
         
-        <form class="contact-form" onsubmit="handleContactForm(event)">
-            <div class="form-group">
-                <label class="form-label" for="name">お名前 *</label>
-                <input type="text" id="name" name="name" class="form-input" required>
-            </div>
+        <div class="contact-form-wrapper">
+            <h3 class="contact-form-title">お問い合わせフォーム</h3>
+            <p class="contact-form-subtitle">* は必須項目です。</p>
             
-            <div class="form-group">
-                <label class="form-label" for="email">メールアドレス *</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label class="form-label" for="message">案件詳細 *</label>
-                <textarea id="message" name="message" class="form-textarea" required placeholder="・記事のテーマや内容&#10;・想定文字数&#10;・ターゲット読者&#10;・その他ご要望など詳しくお聞かせください"></textarea>
-            </div>
-            
-            <button type="submit" class="form-submit">送信する</button>
-        </form>
+            <form class="contact-form" onsubmit="handleContactForm(event)">
+                <div class="form-group">
+                    <label class="form-label" for="inquiry-type">お問い合わせ項目 *</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="inquiry-type" value="consultation" checked>
+                            <span class="radio-custom"></span>
+                            ご相談・お見積り依頼
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="inquiry-type" value="other">
+                            <span class="radio-custom"></span>
+                            その他
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">会社名 *</label>
+                        <input type="text" id="company" name="company" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">電話番号 *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="budget">ご予算</label>
+                        <select id="budget" name="budget" class="form-select">
+                            <option value="">選択してください</option>
+                            <option value="under-50k">5万円未満</option>
+                            <option value="50k-100k">5万円〜10万円</option>
+                            <option value="100k-300k">10万円〜30万円</option>
+                            <option value="300k-500k">30万円〜50万円</option>
+                            <option value="over-500k">50万円以上</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="timeline">ご希望の納期</label>
+                        <select id="timeline" name="timeline" class="form-select">
+                            <option value="">選択してください</option>
+                            <option value="urgent">1週間以内</option>
+                            <option value="normal">2週間以内</option>
+                            <option value="flexible">1ヶ月以内</option>
+                            <option value="negotiable">要相談</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="file-upload">ファイルアップロード</label>
+                    <div class="file-upload-area">
+                        <input type="file" id="file-upload" name="files" multiple accept=".zip,.jpg,.jpeg,.gif,.png,.pdf,.ppt,.doc,.docx" class="file-input">
+                        <div class="file-upload-content">
+                            <span class="file-upload-text">ファイルを選択する</span>
+                            <span class="file-upload-button">アップロードする</span>
+                        </div>
+                    </div>
+                    <p class="file-upload-note">* デザインラフなど共有したいイメージがありましたらアップロードください（5MBまで）<br>対応ファイル形式：zip, jpg, jpeg, gif, png, pdf, ppt, doc, docx</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="message">ご相談・ご依頼内容 *</label>
+                    <textarea id="message" name="message" class="form-textarea" required placeholder="お仕事の概要&#10;・ご使用媒体&#10;・イラストボリューム（点数など）&#10;・ご希望タッチ（ご相談しながら進めていくことも可能です。）&#10;・詳細スケジュール"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="privacy-agreement" required>
+                        <span class="checkbox-custom"></span>
+                        <a href="#" class="privacy-link">プライバシーポリシー</a>に同意します
+                    </label>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    確認画面へ
+                    <span class="submit-arrow">→</span>
+                </button>
+            </form>
+        </div>
     `;
     
     console.log('✅ コンタクト描画完了');
