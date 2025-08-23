@@ -137,11 +137,33 @@ function renderSeoArticles() {
     
     container.innerHTML = '';
     
-    seoArticles.slice(0, 3).forEach(article => {
-        const card = createArticleCard(article);
-        container.appendChild(card);
-    });
+    // 初期表示数
+    let displayCount = 3;
     
+    function showArticles() {
+        container.innerHTML = '';
+        seoArticles.slice(0, displayCount).forEach(article => {
+            const card = createArticleCard(article);
+            container.appendChild(card);
+        });
+        
+        // MOREボタン表示/非表示
+        const existingMoreBtn = container.querySelector('.more-button');
+        if (existingMoreBtn) existingMoreBtn.remove();
+        
+        if (displayCount < seoArticles.length) {
+            const moreButton = document.createElement('button');
+            moreButton.className = 'more-button';
+            moreButton.textContent = 'MORE';
+            moreButton.onclick = () => {
+                displayCount = seoArticles.length;
+                showArticles();
+            };
+            container.appendChild(moreButton);
+        }
+    }
+    
+    showArticles();
     console.log('✅ SEO記事描画完了');
 }
 
@@ -151,11 +173,33 @@ function renderBlogArticles() {
     
     container.innerHTML = '';
     
-    blogArticles.slice(0, 3).forEach(article => {
-        const card = createArticleCard(article);
-        container.appendChild(card);
-    });
+    // 初期表示数
+    let displayCount = 3;
     
+    function showArticles() {
+        container.innerHTML = '';
+        blogArticles.slice(0, displayCount).forEach(article => {
+            const card = createArticleCard(article);
+            container.appendChild(card);
+        });
+        
+        // MOREボタン表示/非表示
+        const existingMoreBtn = container.querySelector('.more-button');
+        if (existingMoreBtn) existingMoreBtn.remove();
+        
+        if (displayCount < blogArticles.length) {
+            const moreButton = document.createElement('button');
+            moreButton.className = 'more-button';
+            moreButton.textContent = 'MORE';
+            moreButton.onclick = () => {
+                displayCount = blogArticles.length;
+                showArticles();
+            };
+            container.appendChild(moreButton);
+        }
+    }
+    
+    showArticles();
     console.log('✅ ブログ記事描画完了');
 }
 

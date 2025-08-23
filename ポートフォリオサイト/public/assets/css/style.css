@@ -827,6 +827,29 @@ h2 {
     transition: width 1.5s ease-out;
 }
 
+/* ===== MOREボタン ===== */
+.more-button {
+    display: block;
+    margin: var(--spacing-lg) auto 0;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.more-button:hover {
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+}
+
 /* ===== お客様の声セクション ===== */
 #testimonials {
     padding: var(--spacing-xl) 0;
