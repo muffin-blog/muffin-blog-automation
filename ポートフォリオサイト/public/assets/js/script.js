@@ -256,7 +256,7 @@ function renderContact() {
             <h3 class="contact-form-title">お問い合わせフォーム</h3>
             <p class="contact-form-subtitle">* は必須項目です。</p>
             
-            <form class="contact-form" onsubmit="handleContactForm(event)">
+            <form class="contact-form" action="https://formspree.io/f/xdknqkdq" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="inquiry-type">お問い合わせ項目 *</label>
                     <div class="radio-group">
@@ -344,8 +344,10 @@ function renderContact() {
                     </label>
                 </div>
                 
+                <input type="hidden" name="_next" value="https://muffin-portfolio-public.vercel.app/#contact">
+                <input type="hidden" name="_subject" value="【ポートフォリオサイト】新しいお問い合わせ">
                 <button type="submit" class="form-submit">
-                    確認画面へ
+                    送信する
                     <span class="submit-arrow">→</span>
                 </button>
             </form>
