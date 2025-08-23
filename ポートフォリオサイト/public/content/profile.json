@@ -7,45 +7,6 @@
   "location": "日本",
   "email": "contact@muffin-writer.com",
   "profileImage": "assets/images/profile/profile.jpg",
-  "achievements": [
-    {
-      "number": "150+",
-      "label": "執筆記事数",
-      "description": "Phase4品質管理システムによる高品質な記事を執筆"
-    },
-    {
-      "number": "80+",
-      "label": "満足クライアント",
-      "description": "継続的な関係を築く信頼のパートナー"
-    },
-    {
-      "number": "3年+",
-      "label": "業界経験",
-      "description": "SEO・コンテンツマーケティング・AI統合システム分野"
-    }
-  ],
-  "services": [
-    {
-      "title": "完全自動化SEO記事執筆",
-      "description": "Phase4統合システムによる101点満点品質のSEO記事を自動生成",
-      "icon": "🎯"
-    },
-    {
-      "title": "AI統合システム構築",
-      "description": "最新のAIツールと自動化システムを統合した効率的なコンテンツ制作環境を構築",
-      "icon": "🤖"
-    },
-    {
-      "title": "ブログ完全自動化支援",
-      "description": "記事作成からポートフォリオ更新まで完全自動化するワークフローシステム提供",
-      "icon": "📈"
-    },
-    {
-      "title": "品質管理システム導入",
-      "description": "企業レベルの品質管理・監視システム導入とコンサルティング",
-      "icon": "💡"
-    }
-  ],
   "socialLinks": [
     {
       "platform": "X",
@@ -70,55 +31,6 @@
       "url": "https://instagram.com/muffin_writer",
       "icon": "📷",
       "color": "#E4405F"
-    }
-  ],
-  "skills": [
-    {
-      "name": "完全自動化SEOライティング",
-      "level": 98,
-      "category": "ライティング"
-    },
-    {
-      "name": "AI統合システム構築",
-      "level": 95,
-      "category": "テクノロジー"
-    },
-    {
-      "name": "Phase4品質管理システム",
-      "level": 92,
-      "category": "品質管理"
-    },
-    {
-      "name": "Python自動化システム",
-      "level": 90,
-      "category": "プログラミング"
-    },
-    {
-      "name": "コンテンツマーケティング",
-      "level": 88,
-      "category": "マーケティング"
-    },
-    {
-      "name": "WordPress + API連携",
-      "level": 85,
-      "category": "CMS"
-    }
-  ],
-  "testimonials": [
-    {
-      "text": "Phase4統合システムにより、記事品質が101点満点を達成。完全自動化により効率も劇的に向上しました。",
-      "author": "統合管理システム 品質評価",
-      "company": "自動品質管理システム"
-    },
-    {
-      "text": "マフィンさんの完全自動化システムは企業レベルの品質管理を実現しています。",
-      "author": "A社 マーケティング担当者",
-      "company": "IT企業"
-    },
-    {
-      "text": "AI統合システム構築により、従来の10倍の効率でコンテンツ制作が可能になりました。",
-      "author": "B社 経営者",
-      "company": "スタートアップ"
     }
   ],
   "faq": [
