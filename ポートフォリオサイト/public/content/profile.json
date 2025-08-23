@@ -19,18 +19,6 @@
       "url": "https://muffin-blog.com/",
       "icon": "💻",
       "color": "#21759b"
-    },
-    {
-      "platform": "Note",
-      "url": "https://note.com/muffin_writer",
-      "icon": "📝",
-      "color": "#41c9b4"
-    },
-    {
-      "platform": "Instagram",
-      "url": "https://instagram.com/muffin_writer",
-      "icon": "📷",
-      "color": "#E4405F"
     }
   ],
   "faq": {
