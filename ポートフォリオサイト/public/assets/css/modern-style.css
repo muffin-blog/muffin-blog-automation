@@ -292,8 +292,10 @@ section {
     transition: var(--transition-medium);
 }
 
-.faq-category-menu a:hover {
+.faq-category-menu a:hover,
+.faq-category-menu a.active {
     color: var(--primary-color);
+    font-weight: var(--font-weight-medium);
 }
 
 .faq-questions {

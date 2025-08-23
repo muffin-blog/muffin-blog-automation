@@ -170,37 +170,61 @@ function renderFAQ() {
     if (!container) return;
     
     // profileData.faqからデータを取得
-    const faqData = profileData.faq || [];
+    const faqData = profileData.faq || {};
+    const categories = Object.keys(faqData);
     
     container.innerHTML = `
         <div class="faq-categories">
             <h3 class="faq-category-title">ライティングについて</h3>
             <ul class="faq-category-menu">
-                <li><a href="#pricing">ご料金・契約関連</a></li>
-                <li><a href="#delivery">納期・進行</a></li>
-                <li><a href="#expertise">専門分野</a></li>
-                <li><a href="#other">その他</a></li>
+                ${categories.map(category => `
+                    <li><a href="#${category}" onclick="switchFAQCategory('${category}')">${category}</a></li>
+                `).join('')}
             </ul>
         </div>
         <div class="faq-questions">
-            <h3 class="faq-section-title">ライティングについて</h3>
-            <div class="faq-items">
-                ${faqData.map((faq, index) => `
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(${index})">
-                            <span class="faq-question-text">${faq.question}</span>
-                            <span class="faq-toggle">+</span>
-                        </div>
-                        <div class="faq-answer" id="faq-answer-${index}">
-                            <p>${faq.answer}</p>
-                        </div>
+            ${categories.map(category => `
+                <div class="faq-category-section" id="category-${category}" style="display: ${category === categories[0] ? 'block' : 'none'};">
+                    <h3 class="faq-section-title">${category}</h3>
+                    <div class="faq-items">
+                        ${faqData[category].map((faq, index) => `
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ('${category}-${index}')">
+                                    <span class="faq-question-text">${faq.question}</span>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer" id="faq-answer-${category}-${index}">
+                                    <p>${faq.answer}</p>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
-                `).join('')}
-            </div>
+                </div>
+            `).join('')}
         </div>
     `;
     
     console.log('✅ FAQ描画完了');
+}
+
+// カテゴリ切り替え関数
+function switchFAQCategory(targetCategory) {
+    // 全てのカテゴリセクションを非表示
+    document.querySelectorAll('.faq-category-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // 選択されたカテゴリのセクションを表示
+    const targetSection = document.getElementById(`category-${targetCategory}`);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+    }
+    
+    // メニューのアクティブ状態更新
+    document.querySelectorAll('.faq-category-menu a').forEach(link => {
+        link.classList.remove('active');
+    });
+    event.target.classList.add('active');
 }
 
 
