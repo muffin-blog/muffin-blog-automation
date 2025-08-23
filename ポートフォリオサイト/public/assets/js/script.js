@@ -172,22 +172,33 @@ function renderFAQ() {
     // profileData.faqからデータを取得
     const faqData = profileData.faq || [];
     
-    container.innerHTML = '';
-    
-    faqData.forEach((faq, index) => {
-        const faqItem = document.createElement('div');
-        faqItem.className = 'faq-item';
-        faqItem.innerHTML = `
-            <div class="faq-question" onclick="toggleFAQ(${index})">
-                <span>${faq.question}</span>
-                <span class="faq-toggle">+</span>
+    container.innerHTML = `
+        <div class="faq-categories">
+            <h3 class="faq-category-title">ライティングについて</h3>
+            <ul class="faq-category-menu">
+                <li><a href="#pricing">ご料金・契約関連</a></li>
+                <li><a href="#delivery">納期・進行</a></li>
+                <li><a href="#expertise">専門分野</a></li>
+                <li><a href="#other">その他</a></li>
+            </ul>
+        </div>
+        <div class="faq-questions">
+            <h3 class="faq-section-title">ライティングについて</h3>
+            <div class="faq-items">
+                ${faqData.map((faq, index) => `
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(${index})">
+                            <span class="faq-question-text">${faq.question}</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-${index}">
+                            <p>${faq.answer}</p>
+                        </div>
+                    </div>
+                `).join('')}
             </div>
-            <div class="faq-answer" id="faq-answer-${index}">
-                ${faq.answer}
-            </div>
-        `;
-        container.appendChild(faqItem);
-    });
+        </div>
+    `;
     
     console.log('✅ FAQ描画完了');
 }

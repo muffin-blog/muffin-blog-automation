@@ -250,60 +250,132 @@ section {
 
 /* ===== FAQ セクション ===== */
 .faq-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.faq-categories {
+    position: sticky;
+    top: 120px;
+}
+
+.faq-category-title {
+    font-size: 20px;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+}
+
+.faq-category-menu {
+    list-style: none;
+}
+
+.faq-category-menu li {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid transparent;
+    transition: var(--transition-medium);
+}
+
+.faq-category-menu li:hover {
+    border-left-color: var(--primary-color);
+}
+
+.faq-category-menu a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition-medium);
+}
+
+.faq-category-menu a:hover {
+    color: var(--primary-color);
+}
+
+.faq-questions {
+    border-left: 1px solid var(--border-color);
+    padding-left: var(--spacing-xl);
+}
+
+.faq-section-title {
+    font-size: 24px;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
 }
 
 .faq-item {
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--border-color);
-    border-radius: 0;
-    overflow: hidden;
-    transition: var(--transition-medium);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-lg);
 }
 
-.faq-item:hover {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-light);
+.faq-item:last-child {
+    border-bottom: none;
 }
 
 .faq-question {
-    padding: var(--spacing-lg);
-    background: var(--bg-primary);
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    padding: var(--spacing-md) 0;
     transition: var(--transition-medium);
-    font-weight: var(--font-weight-medium);
-    font-size: 16px;
-    line-height: 1.6;
 }
 
-.faq-question:hover {
-    background: var(--hover-color);
+.faq-question-text {
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+    flex: 1;
+    margin-right: var(--spacing-md);
+}
+
+.faq-question::before {
+    content: "Q";
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
 }
 
 .faq-toggle {
     font-size: 24px;
-    font-weight: var(--font-weight-light);
+    font-weight: 300;
+    color: var(--primary-color);
     transition: var(--transition-medium);
-    color: var(--secondary-color);
+    flex-shrink: 0;
 }
 
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-slow), padding var(--transition-slow);
-    background: var(--bg-secondary);
-    color: var(--secondary-color);
-    line-height: 1.8;
+    transition: max-height var(--transition-slow);
+    padding-left: 48px;
 }
 
 .faq-answer.active {
-    max-height: 300px;
-    padding: var(--spacing-lg);
-    border-top: 1px solid var(--border-color);
+    max-height: 200px;
+    padding-top: var(--spacing-md);
+}
+
+.faq-answer p {
+    color: var(--secondary-color);
+    line-height: 1.8;
 }
 
 .section-header {
@@ -704,6 +776,20 @@ section {
     
     .container {
         padding: 0 var(--spacing-md);
+    }
+    
+    .faq-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .faq-categories {
+        position: static;
+    }
+    
+    .faq-questions {
+        border-left: none;
+        padding-left: 0;
     }
 }
 
