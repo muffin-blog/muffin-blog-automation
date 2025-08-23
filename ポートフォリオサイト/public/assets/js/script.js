@@ -256,7 +256,7 @@ function renderContact() {
             <h3 class="contact-form-title">お問い合わせフォーム</h3>
             <p class="contact-form-subtitle">* は必須項目です。</p>
             
-            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+            <form class="contact-form" onsubmit="handleContactForm(event)">
                 <div class="form-group">
                     <label class="form-label" for="inquiry-type">お問い合わせ項目 *</label>
                     <div class="radio-group">
@@ -344,7 +344,6 @@ function renderContact() {
                     </label>
                 </div>
                 
-                <input type="hidden" name="form-name" value="contact">
                 <button type="submit" class="form-submit">
                     送信する
                     <span class="submit-arrow">→</span>
@@ -381,23 +380,49 @@ function handleContactForm(event) {
     event.preventDefault();
     
     const formData = new FormData(event.target);
+    
+    // 必須項目チェック
     const name = formData.get('name');
     const email = formData.get('email');
+    const company = formData.get('company');
+    const phone = formData.get('phone');
     const message = formData.get('message');
+    const privacyAgreement = formData.get('privacy-agreement');
     
-    if (!name || !email || !message) {
-        alert('必須項目をすべて入力してください。');
+    if (!name || !email || !company || !phone || !message || !privacyAgreement) {
+        alert('必須項目をすべて入力し、プライバシーポリシーに同意してください。');
         return;
     }
     
-    const subject = `【ポートフォリオサイト】お問い合わせ - ${name}様`;
-    const emailBody = `【お名前】${name}\n【メールアドレス】${email}\n\n【案件詳細】\n${message}`;
+    // メール内容作成
+    const inquiryType = formData.get('inquiry-type');
+    const budget = formData.get('budget');
+    const timeline = formData.get('timeline');
+    
+    const subject = `【ポートフォリオサイト】${inquiryType === 'consultation' ? 'ご相談・お見積り' : 'お問い合わせ'} - ${name}様`;
+    
+    const emailBody = `
+【お問い合わせ項目】${inquiryType === 'consultation' ? 'ご相談・お見積り依頼' : 'その他'}
+
+【お名前】${name}
+【会社名】${company}
+【メールアドレス】${email}
+【電話番号】${phone}
+【ご予算】${budget || '未選択'}
+【ご希望納期】${timeline || '未選択'}
+
+【ご相談・ご依頼内容】
+${message}
+
+---
+このメールはポートフォリオサイトのお問い合わせフォームから送信されました。
+    `.trim();
     
     const mailtoLink = `mailto:0527muffin1203@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
     
     event.target.reset();
-    alert('メールクライアントが開きます。送信をお願いいたします。');
+    alert('メールクライアントが開きます。送信ボタンを押してお送りください。');
 }
 
 // 横スクロールボタン初期化
