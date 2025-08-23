@@ -131,6 +131,15 @@
   ],
   "blogArticles": [
     {
+      "title": "404: ページが見つかりませんでした | マフィンブログ",
+      "url": "https://muffin-blog.com/audible-free-trial/",
+      "description": "このサイトでは、「1年後の自分を楽にする」をテーマに、スキマ時間を活用した「耳活」による効率的な学習方法、アプリを使ったお小遣いの稼ぎの方、月に3万円から5万円を副業で稼ぐ方法、生活に役立つお得情報などを紹介しています。",
+      "date": "2025-08-23",
+      "tags": [],
+      "client": "Muffin Blog",
+      "thumbnail": "/assets/images/default-blog-thumbnail.jpg"
+    },
+    {
       "title": "Audible二刀流読書で集中力・読解力向上！効果と始め方",
       "url": "https://muffin-blog.com/audible-concentration-reading-improvement/",
       "description": "Audible二刀流読書で集中力・読解力が科学的に向上！音声と文字を同時活用する効果的な読書法の実践方法とコツを詳しく解説。読書効果を最大化する活用術を紹介します。",
