@@ -139,6 +139,7 @@ function renderSeoArticles() {
     
     // 初期表示数
     let displayCount = 3;
+    let isExpanded = false;
     
     function showArticles() {
         container.innerHTML = '';
@@ -147,18 +148,27 @@ function renderSeoArticles() {
             container.appendChild(card);
         });
         
-        // MOREボタン表示/非表示
-        const existingMoreBtn = container.querySelector('.more-button');
-        if (existingMoreBtn) existingMoreBtn.remove();
-        
-        if (displayCount < seoArticles.length) {
+        // MOREボタン表示（記事が3件より多い場合のみ）
+        if (seoArticles.length > 3) {
             const moreButton = document.createElement('button');
             moreButton.className = 'more-button';
-            moreButton.textContent = 'MORE';
-            moreButton.onclick = () => {
-                displayCount = seoArticles.length;
-                showArticles();
-            };
+            
+            if (isExpanded) {
+                moreButton.textContent = 'CLOSE';
+                moreButton.onclick = () => {
+                    displayCount = 3;
+                    isExpanded = false;
+                    showArticles();
+                };
+            } else {
+                moreButton.textContent = 'MORE';
+                moreButton.onclick = () => {
+                    displayCount = seoArticles.length;
+                    isExpanded = true;
+                    showArticles();
+                };
+            }
+            
             container.appendChild(moreButton);
         }
     }
@@ -175,6 +185,7 @@ function renderBlogArticles() {
     
     // 初期表示数
     let displayCount = 3;
+    let isExpanded = false;
     
     function showArticles() {
         container.innerHTML = '';
@@ -183,18 +194,29 @@ function renderBlogArticles() {
             container.appendChild(card);
         });
         
-        // MOREボタン表示/非表示
-        const existingMoreBtn = container.querySelector('.more-button');
-        if (existingMoreBtn) existingMoreBtn.remove();
-        
-        if (displayCount < blogArticles.length) {
+        // MOREボタン表示（記事が3件より多い場合のみ）
+        if (blogArticles.length > 3) {
             const moreButton = document.createElement('button');
             moreButton.className = 'more-button';
-            moreButton.textContent = 'MORE';
-            moreButton.onclick = () => {
-                displayCount = blogArticles.length;
-                showArticles();
-            };
+            
+            if (isExpanded) {
+                moreButton.textContent = 'CLOSE';
+                moreButton.onclick = () => {
+                    displayCount = 3;
+                    isExpanded = false;
+                    showArticles();
+                    // CLOSEボタン押下時にセクションの上部にスクロール
+                    document.getElementById('blog-articles').scrollIntoView({ behavior: 'smooth' });
+                };
+            } else {
+                moreButton.textContent = 'MORE';
+                moreButton.onclick = () => {
+                    displayCount = blogArticles.length;
+                    isExpanded = true;
+                    showArticles();
+                };
+            }
+            
             container.appendChild(moreButton);
         }
     }
