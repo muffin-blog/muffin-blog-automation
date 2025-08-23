@@ -37,11 +37,11 @@
             </div>
             <nav role="navigation" class="hover-nav" aria-label="メインナビゲーション">
                 <ul>
-                    <li><a href="#profile" data-en="PROFILE" data-jp="プロフィール">PROFILE</a></li>
-                    <li><a href="#seo-articles" data-en="WORK" data-jp="制作実績">WORK</a></li>
-                    <li><a href="#blog-articles" data-en="BLOG" data-jp="ブログ">BLOG</a></li>
-                    <li><a href="#faq" data-en="FAQ" data-jp="よくある質問">FAQ</a></li>
-                    <li><a href="#contact" data-en="CONTACT" data-jp="お問い合わせ">CONTACT</a></li>
+                    <li><a href="#profile" data-en="PROFILE" data-jp="プロフィール"><span class="nav-text">PROFILE</span></a></li>
+                    <li><a href="#seo-articles" data-en="WORK" data-jp="制作実績"><span class="nav-text">WORK</span></a></li>
+                    <li><a href="#blog-articles" data-en="BLOG" data-jp="ブログ"><span class="nav-text">BLOG</span></a></li>
+                    <li><a href="#faq" data-en="FAQ" data-jp="よくある質問"><span class="nav-text">FAQ</span></a></li>
+                    <li><a href="#contact" data-en="CONTACT" data-jp="お問い合わせ"><span class="nav-text">CONTACT</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -62,23 +62,6 @@
 
     <main role="main">
         <div class="container">
-            <section id="profile" class="profile-section" aria-labelledby="profile-heading">
-                <h2 id="profile-heading">PROFILE</h2>
-                <div class="profile-container">
-                    <div class="profile-grid">
-                        <div class="profile-image">
-                            <img src="assets/images/profile/profile.jpg" alt="プロフィール画像" id="profile-img" loading="lazy">
-                        </div>
-                        <div class="profile-text">
-                            <h3>読み込み中...</h3>
-                            <p>プロフィール情報を読み込んでいます...</p>
-                            <!-- SNSリンクとスキルはJavaScriptで動的に追加されます -->
-                        </div>
-                    </div>
-                </div>
-                
-            </section>
-
             <section id="seo-articles" class="work-section" aria-labelledby="seo-articles-heading">
                 <div class="section-header">
                     <h2 id="seo-articles-heading">WORK</h2>
@@ -128,6 +111,22 @@
                 
                 <div class="contact-container">
                     <!-- コンタクト情報はJavaScriptで動的に生成されます -->
+                </div>
+            </section>
+            
+            <section id="profile" class="profile-section" aria-labelledby="profile-heading">
+                <div class="section-header">
+                    <h2 id="profile-heading">PROFILE</h2>
+                    <p class="section-subtitle">About the Writer</p>
+                </div>
+                
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <img src="assets/images/profile/profile.jpg" alt="マフィン - プロフィール写真" loading="lazy">
+                    </div>
+                    <div class="profile-text">
+                        <!-- プロフィール情報はJavaScriptで動的に生成されます -->
+                    </div>
                 </div>
             </section>
         </div>
