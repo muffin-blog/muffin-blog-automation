@@ -26,31 +26,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/modern-style.css">
 </head>
 <body>
-    <header role="banner">
+    <header role="banner" class="modern-header">
         <div class="container">
-            <div class="header-title">
-                <h1>AI×SEO Writer</h1>
-                <div class="header-subtitle">MUFFIN</div>
+            <div class="logo">
+                <h1>MUFFIN</h1>
+                <span class="logo-subtitle">AI × SEO Writer</span>
             </div>
-            <nav role="navigation" aria-label="メインナビゲーション">
+            <nav role="navigation" class="hover-nav" aria-label="メインナビゲーション">
                 <ul>
-                    <li><a href="#profile" aria-label="プロフィールセクションへ">Profile</a></li>
-                    <li><a href="#seo-articles" aria-label="SEO記事セクションへ">Work</a></li>
-                    <li><a href="#blog-articles" aria-label="ブログセクションへ">Blog</a></li>
-                    <li><a href="#faq" aria-label="FAQ セクションへ">FAQ</a></li>
-                    <li><a href="#contact" aria-label="コンタクトセクションへ">Contact</a></li>
+                    <li><a href="#profile" data-en="PROFILE" data-jp="プロフィール">PROFILE</a></li>
+                    <li><a href="#seo-articles" data-en="WORK" data-jp="制作実績">WORK</a></li>
+                    <li><a href="#blog-articles" data-en="BLOG" data-jp="ブログ">BLOG</a></li>
+                    <li><a href="#faq" data-en="FAQ" data-jp="よくある質問">FAQ</a></li>
+                    <li><a href="#contact" data-en="CONTACT" data-jp="お問い合わせ">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
 
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">AI × SEO Writer</h1>
+            <p class="hero-subtitle">Creating quality content with innovative technology</p>
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-indicator"></div>
+            </div>
+        </div>
+    </section>
+
     <main role="main">
         <div class="container">
-            <section id="profile" aria-labelledby="profile-heading">
+            <section id="profile" class="profile-section" aria-labelledby="profile-heading">
                 <h2 id="profile-heading">PROFILE</h2>
                 <div class="profile-container">
                     <div class="profile-grid">
@@ -67,29 +79,37 @@
                 
             </section>
 
-            <section id="seo-articles" aria-labelledby="seo-articles-heading">
-                <h2 id="seo-articles-heading">SEO ARTICLES</h2>
-                <p style="text-align: center; color: var(--secondary-color); margin-bottom: var(--spacing-xl); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Client Work & External Publications</p>
+            <section id="seo-articles" class="work-section" aria-labelledby="seo-articles-heading">
+                <div class="section-header">
+                    <h2 id="seo-articles-heading">WORK</h2>
+                    <p class="section-subtitle">Client Work & External Publications</p>
+                </div>
                 
-                <div class="seo-articles-container" role="region" aria-label="SEO記事一覧" aria-live="polite">
-                    <!-- SEO記事カードはJavaScriptで動的に生成されます -->
-                    <div class="loading" aria-label="SEO記事を読み込み中">
-                        <div class="spinner"></div>
-                        <p>SEO記事を読み込んでいます...</p>
+                <div class="horizontal-scroll-container">
+                    <button class="scroll-btn scroll-btn-left" aria-label="前の記事">‹</button>
+                    <div class="horizontal-scroll" id="seo-scroll">
+                        <div class="seo-articles-container" role="region" aria-label="SEO記事一覧">
+                            <!-- SEO記事カードはJavaScriptで動的に生成されます -->
+                        </div>
                     </div>
+                    <button class="scroll-btn scroll-btn-right" aria-label="次の記事">›</button>
                 </div>
             </section>
             
-            <section id="blog-articles" aria-labelledby="blog-articles-heading">
-                <h2 id="blog-articles-heading">BLOG ARTICLES</h2>
-                <p style="text-align: center; color: var(--secondary-color); margin-bottom: var(--spacing-xl); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Personal Blog & Insights</p>
+            <section id="blog-articles" class="blog-section" aria-labelledby="blog-articles-heading">
+                <div class="section-header">
+                    <h2 id="blog-articles-heading">BLOG</h2>
+                    <p class="section-subtitle">Personal Blog & Insights</p>
+                </div>
                 
-                <div class="blog-articles-container" role="region" aria-label="ブログ記事一覧" aria-live="polite">
-                    <!-- ブログ記事カードはJavaScriptで動的に生成されます -->
-                    <div class="loading" aria-label="ブログ記事を読み込み中">
-                        <div class="spinner"></div>
-                        <p>ブログ記事を読み込んでいます...</p>
+                <div class="horizontal-scroll-container">
+                    <button class="scroll-btn scroll-btn-left" aria-label="前の記事">‹</button>
+                    <div class="horizontal-scroll" id="blog-scroll">
+                        <div class="blog-articles-container" role="region" aria-label="ブログ記事一覧">
+                            <!-- ブログ記事カードはJavaScriptで動的に生成されます -->
+                        </div>
                     </div>
+                    <button class="scroll-btn scroll-btn-right" aria-label="次の記事">›</button>
                 </div>
             </section>
             

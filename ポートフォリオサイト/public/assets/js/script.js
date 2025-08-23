@@ -107,43 +107,15 @@ function renderSeoArticles() {
     
     container.innerHTML = '';
     
-    // 初期表示数
-    let displayCount = 3;
-    let isExpanded = false;
+    // 横スクロール用に全記事表示
+    seoArticles.forEach(article => {
+        const card = createArticleCard(article);
+        container.appendChild(card);
+    });
     
-    function showArticles() {
-        container.innerHTML = '';
-        seoArticles.slice(0, displayCount).forEach(article => {
-            const card = createArticleCard(article);
-            container.appendChild(card);
-        });
-        
-        // MOREボタン表示（記事が3件より多い場合のみ）
-        if (seoArticles.length > 3) {
-            const moreButton = document.createElement('button');
-            moreButton.className = 'more-button';
-            
-            if (isExpanded) {
-                moreButton.textContent = 'CLOSE';
-                moreButton.onclick = () => {
-                    displayCount = 3;
-                    isExpanded = false;
-                    showArticles();
-                };
-            } else {
-                moreButton.textContent = 'MORE';
-                moreButton.onclick = () => {
-                    displayCount = seoArticles.length;
-                    isExpanded = true;
-                    showArticles();
-                };
-            }
-            
-            container.appendChild(moreButton);
-        }
-    }
+    // 横スクロールボタン初期化
+    initializeScrollButtons('seo-scroll');
     
-    showArticles();
     console.log('✅ SEO記事描画完了');
 }
 
@@ -153,45 +125,15 @@ function renderBlogArticles() {
     
     container.innerHTML = '';
     
-    // 初期表示数
-    let displayCount = 3;
-    let isExpanded = false;
+    // 横スクロール用に全記事表示
+    blogArticles.forEach(article => {
+        const card = createArticleCard(article);
+        container.appendChild(card);
+    });
     
-    function showArticles() {
-        container.innerHTML = '';
-        blogArticles.slice(0, displayCount).forEach(article => {
-            const card = createArticleCard(article);
-            container.appendChild(card);
-        });
-        
-        // MOREボタン表示（記事が3件より多い場合のみ）
-        if (blogArticles.length > 3) {
-            const moreButton = document.createElement('button');
-            moreButton.className = 'more-button';
-            
-            if (isExpanded) {
-                moreButton.textContent = 'CLOSE';
-                moreButton.onclick = () => {
-                    displayCount = 3;
-                    isExpanded = false;
-                    showArticles();
-                    // CLOSEボタン押下時にセクションの上部にスクロール
-                    document.getElementById('blog-articles').scrollIntoView({ behavior: 'smooth' });
-                };
-            } else {
-                moreButton.textContent = 'MORE';
-                moreButton.onclick = () => {
-                    displayCount = blogArticles.length;
-                    isExpanded = true;
-                    showArticles();
-                };
-            }
-            
-            container.appendChild(moreButton);
-        }
-    }
+    // 横スクロールボタン初期化
+    initializeScrollButtons('blog-scroll');
     
-    showArticles();
     console.log('✅ ブログ記事描画完了');
 }
 
@@ -331,6 +273,42 @@ function handleContactForm(event) {
     
     event.target.reset();
     alert('メールクライアントが開きます。送信をお願いいたします。');
+}
+
+// 横スクロールボタン初期化
+function initializeScrollButtons(scrollId) {
+    const scrollContainer = document.getElementById(scrollId);
+    if (!scrollContainer) return;
+    
+    const scrollBtns = scrollContainer.parentElement.querySelectorAll('.scroll-btn');
+    const leftBtn = scrollContainer.parentElement.querySelector('.scroll-btn-left');
+    const rightBtn = scrollContainer.parentElement.querySelector('.scroll-btn-right');
+    
+    if (!leftBtn || !rightBtn) return;
+    
+    leftBtn.onclick = () => {
+        scrollContainer.scrollBy({
+            left: -400,
+            behavior: 'smooth'
+        });
+    };
+    
+    rightBtn.onclick = () => {
+        scrollContainer.scrollBy({
+            left: 400,
+            behavior: 'smooth'
+        });
+    };
+    
+    // ボタン表示/非表示の判定
+    function updateButtonVisibility() {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        leftBtn.style.opacity = scrollLeft > 0 ? '1' : '0.5';
+        rightBtn.style.opacity = scrollLeft < scrollWidth - clientWidth - 10 ? '1' : '0.5';
+    }
+    
+    scrollContainer.addEventListener('scroll', updateButtonVisibility);
+    setTimeout(updateButtonVisibility, 100);
 }
 
 console.log('✅ JavaScript読み込み完了');
