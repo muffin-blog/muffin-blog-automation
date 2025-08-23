@@ -63,10 +63,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         hideLoading();
         renderProfile();
         renderServices();
-        renderSkills();
         renderSeoArticles();
         renderBlogArticles();
-        renderTestimonials();
         renderFAQ();
         renderContact();
         console.log('✅ 全ての描画完了');
@@ -83,30 +81,11 @@ function hideLoading() {
 }
 
 function renderProfile() {
-    const profileText = document.querySelector('.profile-text');
-    if (!profileText) return;
+    const nameElement = document.querySelector('.profile-text h3');
+    const bioElement = document.querySelector('.profile-text p');
     
-    // プロフィール基本情報
-    profileText.innerHTML = `
-        <h3>${profileData.name || 'マフィン'}</h3>
-        <div class="profile-title">${profileData.title || 'AI × SEOライター'}</div>
-        <p>${profileData.bio || ''}</p>
-        <div class="profile-stats">
-            ${profileData.achievements ? profileData.achievements.map(achievement => `
-                <div class="stat-item">
-                    <div class="stat-number">${achievement.number}</div>
-                    <div class="stat-label">${achievement.label}</div>
-                </div>
-            `).join('') : ''}
-        </div>
-        <div class="social-links">
-            ${profileData.socialLinks ? profileData.socialLinks.map(link => `
-                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="${link.platform}">
-                    <span style="color: ${link.color}">${link.icon}</span>
-                </a>
-            `).join('') : ''}
-        </div>
-    `;
+    if (nameElement) nameElement.textContent = profileData.name;
+    if (bioElement) bioElement.textContent = profileData.bio;
     
     console.log('✅ プロフィール描画完了');
 }
@@ -212,64 +191,6 @@ function renderFAQ() {
     });
     
     console.log('✅ FAQ描画完了');
-}
-
-function renderSkills() {
-    const profileContainer = document.querySelector('.profile-container');
-    if (!profileContainer || !profileData.skills) return;
-    
-    // スキルセクションを追加
-    const skillsSection = document.createElement('div');
-    skillsSection.className = 'skills-section';
-    skillsSection.innerHTML = `
-        <h3 class="skills-title">SKILLS</h3>
-        <div class="skills-grid">
-            ${profileData.skills.map(skill => `
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">${skill.name}</span>
-                        <span class="skill-level">${skill.level}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: ${skill.level}%"></div>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-    
-    profileContainer.appendChild(skillsSection);
-    console.log('✅ スキル描画完了');
-}
-
-function renderTestimonials() {
-    const blogSection = document.getElementById('blog-articles');
-    if (!blogSection || !profileData.testimonials) return;
-    
-    // お客様の声セクションを作成
-    const testimonialsSection = document.createElement('section');
-    testimonialsSection.id = 'testimonials';
-    testimonialsSection.innerHTML = `
-        <h2>TESTIMONIALS</h2>
-        <p style="text-align: center; color: var(--secondary-color); margin-bottom: var(--spacing-xl); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Client Reviews & Feedback</p>
-        <div class="testimonials-container">
-            ${profileData.testimonials.map(testimonial => `
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"${testimonial.text}"</p>
-                        <div class="testimonial-author">
-                            <strong>${testimonial.author}</strong>
-                            <span>${testimonial.company}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-    
-    // blog-articlesセクションの後に挿入
-    blogSection.parentNode.insertBefore(testimonialsSection, blogSection.nextSibling);
-    console.log('✅ お客様の声描画完了');
 }
 
 function renderContact() {
