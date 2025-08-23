@@ -142,131 +142,109 @@
       "url": "https://muffin-blog.com/"
     },
     {
-      "title": "404: ページが見つかりませんでした | マフィンブログ",
-      "url": "https://muffin-blog.com/audible-free-trial/",
+      "title": "404: ページが見つかりませんでした",
       "description": "このサイトでは、「1年後の自分を楽にする」をテーマに、スキマ時間を活用した「耳活」による効率的な学習方法、アプリを使ったお小遣いの稼ぎの方、月に3万円から5万円を副業で稼ぐ方法、生活に役立つお得情報などを紹介しています。",
       "date": "2025-08-23",
-      "tags": [],
-      "client": "Muffin Blog",
-      "thumbnail": "/assets/images/default-blog-thumbnail.jpg"
+      "tags": [
+        "ライフハック"
+      ],
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2022/07/cropped-f1d071d3122e0b8adaccd1a001897e05.png",
+      "url": "https://muffin-blog.com/audible-free-trial/"
     },
     {
       "title": "Audible二刀流読書で集中力・読解力向上！効果と始め方",
-      "url": "https://muffin-blog.com/audible-concentration-reading-improvement/",
-      "description": "Audible二刀流読書で集中力・読解力が科学的に向上！音声と文字を同時活用する効果的な読書法の実践方法とコツを詳しく解説。読書効果を最大化する活用術を紹介します。",
+      "description": "Audible二刀流読書で集中力・読解力が科学的に向上！音声と文字を同時活用する効果的な読書法の実践方法とコツを詳しく解説。読書効果を最大化する活用術を紹介します。\n",
       "date": "2025-08-16",
       "tags": [
-        "ブログ",
-        "オーディオブック",
-        "オーディブル",
-        "読書効果",
-        "集中力向上"
+        "Audible",
+        "30日無料",
+        "Audible",
+        "Audible英語学習",
+        "イマーシブリーディング",
+        "オーディオブック"
       ],
-      "client": "Muffin Blog",
-      "thumbnail": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2025/08/audible-concentration-reading-improvement.jpg",
+      "url": "https://muffin-blog.com/audible-concentration-reading-improvement/"
     },
     {
-      "title": "【オーディオブック】単品購入ならaudiobook.jpがお得？比較とセールまとめ | マフィンブログ",
-      "url": "https://muffin-blog.com/audiobook-jp-tanpin-guide/",
-      "description": "audiobook.jp単品購入が最安値！2025年8月開催中の50%OFFセール情報とAudibleとの価格比較、配信確認済み厳選15作品、アプリ購入で損しないWeb購入の手順まで完全解説。",
-      "date": "2025-08-11",
+      "title": "【オーディオブック】単品購入ならaudiobook.jpがお得？比較とセールまとめ",
+      "description": "audiobook.jp単品購入が最安値！2025年8月開催中の50%OFFセール情報とAudibleとの価格比較、配信確認済み厳選15作品、アプリ購入で損しないWeb購入の手順まで完全解説。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "オーディオブック",
-        "放題",
-        "セール",
-        "30日無料"
+        "Audiobook.jp",
+        "Audblw比較",
+        "audiobook.jp",
+        "セール情報",
+        "単品購入",
+        "比較"
       ],
-      "client": "Muffin Blog",
-      "thumbnail": "/assets/images/default-blog-thumbnail.jpg"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2025/08/audiobook.jp-tanpin-guide.jpg",
+      "url": "https://muffin-blog.com/audiobook-jp-tanpin-guide/"
     },
     {
       "title": "本が読めない悩み解決！Audibleで始める聴く読書の魅力とは",
-      "url": "https://muffin-blog.com/audible-reading-dislike-solution/",
-      "description": "本が読めない、続かない悩みを解決！Audible（オーディブル）なら耳で聞く読書で挫折知らず。30日無料体験で聴く読書の魅力を実感してみませんか？",
+      "description": "本が読めない、続かない悩みを解決！Audible（オーディブル）なら耳で聞く読書で挫折知らず。30日無料体験で聴く読書の魅力を実感してみませんか？\n",
       "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "読書苦手",
+        "Audible",
+        "30日無料",
+        "Audible",
         "オーディオブック",
         "オーディブル",
-        "時間",
-        "マフィン"
+        "ながら読書"
       ],
-      "thumbnail": "/assets/images/default-blog-thumbnail.jpg"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2025/08/audible-reading-dislike-solution.jpg",
+      "url": "https://muffin-blog.com/audible-reading-dislike-solution/"
     },
     {
       "title": "「耳活で人生は変わる！」1年後の自分が楽になるたった一つの習慣",
-      "url": "https://muffin-blog.com/ears-activity/",
-      "description": "1年後の自分を楽にするためには、習慣を見直し、学び続けることが重要。この記事では、誰もが簡単に取り入れられる学習方法として「耳活」をおすすめしています。耳活を日常に取り入れて人生をイージーモードにしていきましょう。",
-      "date": "2025-07-10",
+      "description": "Audibleで人生が変わる！効率的な学習方法と時間活用術で通勤時間を自己投資の時間に変換。1年後の自分を楽にする習慣術を紹介。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "勉強",
-        "耳活",
-        "YouTube",
-        "年後"
+        "Audible"
       ],
-      "thumbnail": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2024/04/ears-activity.jpg",
+      "url": "https://muffin-blog.com/ears-activity/"
     },
     {
       "title": "世界一分かりやすいAudible（オーディブル）の始め方！アプリの使い方を完全ガイド",
-      "url": "https://muffin-blog.com/start-guide-for-audible/",
-      "description": "「忙しくて本を読む時間がない」「活字を読むのが苦手」そんな方でもAudibleなら読書を楽しめます。この記事では、まだAudibleを体験したことがない方に向けて、Amazonアカウントの登録方法からアプリの便利な使い方までを画像付きで分かりやすく解説しています。",
-      "date": "2025-07-01",
+      "description": "Audibleの始め方を初心者向けに完全解説！アプリの使い方から料金プラン、おすすめ機能まで世界一分かりやすくガイドします。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "ガイド",
-        "アカウント",
-        "完全",
-        "オーディブル",
-        "アプリ"
+        "Audible"
       ],
-      "thumbnail": "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2024/05/start-guide-for-audible.jpg",
+      "url": "https://muffin-blog.com/start-guide-for-audible/"
     },
     {
       "title": "安心してAudibleを始めるために事前にチェック！退会・解約方法を徹底解説",
-      "url": "https://muffin-blog.com/audible-cancel/",
-      "description": "Audibleの利用を検討している方にとって、退会や解約の方法を事前に知ることは重要です。この記事では、実際の画像を使ってAudibleの退会・解約方法をわかりやすく説明しています。さらに、Audibleを始める前に知っておくべき7つのポイントについても詳しく解説していますので、ぜひ参考にしてください。",
-      "date": "2025-06-20",
+      "description": "Audible退会・解約方法を徹底解説。事前チェックポイント7つと安心して始める方法を紹介。解約前の重要な確認事項もまとめました。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "解約",
-        "退会手続き",
-        "退会",
-        "アプリ",
-        "チェック"
+        "Audible"
       ],
-      "thumbnail": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2024/05/audible-cancel.jpg",
+      "url": "https://muffin-blog.com/audible-cancel/"
     },
     {
       "title": "Audibleの休会制度を完全ガイド！メリットや注意点、退会との違いを丁寧に解説",
-      "url": "https://muffin-blog.com/audible-recess/",
-      "description": "「仕事や家事が忙しくてAudibleを聴く余裕がない」という方は休会制度の利用がおすすめ。せっかく始めた読書習慣を忙しさだけで諦めるのはもったいないですよね。この記事では、Audibleの休会制度のメリットや注意点、退会との違い、そして休会制度の利用方法について、分かりやすく解説します。",
-      "date": "2025-06-10",
+      "description": "Audibleの休会制度を完全ガイド！メリット・デメリット、退会との違い、手続き方法まで分かりやすく解説。忙しい時期の活用法も紹介します。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "オーディオブック",
-        "退会",
-        "注意点",
-        "完全",
-        "解説"
+        "Audible"
       ],
-      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2024/05/audible-recess.jpg",
+      "url": "https://muffin-blog.com/audible-recess/"
     },
     {
       "title": "Audibleでお金の勉強！これから貯金・節約・投資を学びたい人におすすめの書籍6選",
-      "url": "https://muffin-blog.com/audible-money-study/",
-      "description": "お金の不安や問題を解決するには、「お金について学ぶ」ことが大切です。この記事では、Audibleで聴けるお金に関する書籍を、初心者、中級者〜上級者向けに分けて詳しく紹介しています。本記事で紹介する書籍の内容を実践して、人生をイージモードにしていきましょう。",
-      "date": "2025-05-15",
+      "description": "Audibleでお金の知識を身につけよう！貯蓄・節約・投資が学べるおすすめ書籍6選を厳選紹介。お金の勉強を楽しく続ける方法も詳しく解説します。\n",
+      "date": "2025-08-10",
       "tags": [
-        "ブログ",
-        "オーディオブック",
-        "投資",
-        "勉強",
-        "人生"
+        "Audible"
       ],
-      "thumbnail": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=200&fit=crop&auto=format"
+      "thumbnail": "https://muffin-blog.com/wp-content/uploads/2024/06/audible-money-study.jpg",
+      "url": "https://muffin-blog.com/audible-money-study/"
     }
   ]
 }
